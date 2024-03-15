@@ -27,8 +27,6 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 vim.opt.shortmess = vim.opt.shortmess + 'S'
--- normal下通过esc关闭高亮
--- nnoremap <Esc> :nohlsearch<cr>				
 
 -- 复制代码高亮
 vim.api.nvim_create_autocmd('TextYankPost', {
