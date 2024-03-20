@@ -141,4 +141,11 @@ return {
 			require("plugins.nvim-cmp")
 		end,
     },
+    {
+		-- 代码高亮
+        "nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("plugins.nvim-treesitter")
+			end,
+    },
 }
