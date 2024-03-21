@@ -112,7 +112,7 @@ return {
         -- 格式化插件
         "sbdchd/neoformat",
         config = function()
-            vim.cmd("command! Format Neoformat")
+            require("plugins.neoformat")
         end,
     },
     {
@@ -128,7 +128,7 @@ return {
         "fatih/vim-go",
     },
     {
-		-- 补全插件
+        -- 补全插件
         "hrsh7th/nvim-cmp",
         dependencies = {
             "neovim/nvim-lspconfig",
@@ -137,15 +137,15 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
         },
-		config=function()
-			require("plugins.nvim-cmp")
-		end,
+        config = function()
+            require("plugins.nvim-cmp")
+        end,
     },
     {
-		-- 代码高亮
+        -- 代码高亮
         "nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("plugins.nvim-treesitter")
-			end,
+        config = function()
+            require("plugins.nvim-treesitter")
+        end,
     },
 }
