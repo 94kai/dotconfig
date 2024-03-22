@@ -81,12 +81,23 @@ return {
     -- 		require('plugins.smooth-cursor')
     -- 	end
     -- },
+	-- 主题---------------
     {
         "folke/tokyonight.nvim",
         config = function()
-            require("plugins.tokyonight")
+            require("plugins.theme")
         end,
     },
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("plugins.theme")
+        end,
+    },
+	-- 主题---------------
     {
         "lewis6991/gitsigns.nvim",
         config = function()

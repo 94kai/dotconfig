@@ -36,6 +36,14 @@ let g:qs_lazy_highlight = 1								" 没按f/t时不高亮
 " normal下通过esc关闭高亮
 nnoremap <silent> <Esc> :nohlsearch<cr>
 
+-- 窗口切换快捷键
+nnoremap <silent> <C-h> <C-w><Left>
+nnoremap <silent> <C-j> <C-w><Down>
+nnoremap <silent> <C-k> <C-w><Up>
+nnoremap <silent> <C-l> <C-w><Right>
+nnoremap <silent> H :bp<CR>
+nnoremap <silent> L :bn<CR>
+
 Plug 'machakann/vim-highlightedyank'					" 复制时高亮
 let g:highlightedyank_highlight_duration = "200"		" 设置高亮时间
 

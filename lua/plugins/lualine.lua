@@ -5,7 +5,7 @@ if lualine then
 	lualine.setup({
 		options = {
 			-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-			theme =  "tokyonight",
+			theme =  "moonfly",
 			component_separators = {
 				left = "|",
 				right = "|",
