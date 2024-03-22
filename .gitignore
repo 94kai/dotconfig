@@ -1,3 +1,2 @@
-lazy-lock.json
-.luarc.json
-.netrwhist
+nvim/lazy-lock.json
+nvim/.netrwhist

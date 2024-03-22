@@ -41,10 +41,5 @@ vim.o.foldmethod = "indent"
 vim.o.nofoldenable = true
 -- 移除空行前面的波浪
 vim.opt.fillchars = { eob = " " }
--- 窗口切换快捷键
-keymap("n", "<C-h>", "<C-w><Left>")
-keymap("n", "<C-j>", "<C-w><Down>")
-keymap("n", "<C-k>", "<C-w><Up>")
-keymap("n", "<C-l>", "<C-w><Right>")
 keymap("n", "H", ":bp<CR>")
 keymap("n", "L", ":bn<CR>")

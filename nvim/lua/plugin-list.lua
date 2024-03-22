@@ -81,7 +81,7 @@ return {
     -- 		require('plugins.smooth-cursor')
     -- 	end
     -- },
-	-- 主题---------------
+    -- 主题---------------
     {
         "folke/tokyonight.nvim",
         config = function()
@@ -97,7 +97,7 @@ return {
             require("plugins.theme")
         end,
     },
-	-- 主题---------------
+    -- 主题---------------
     {
         "lewis6991/gitsigns.nvim",
         config = function()
@@ -158,5 +158,21 @@ return {
         config = function()
             require("plugins.nvim-treesitter")
         end,
+    },
+    {
+		-- 支持通过c-hjkl切换vim的window
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+        },
+        keys = {
+            { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+        },
     },
 }
