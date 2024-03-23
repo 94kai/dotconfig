@@ -23,28 +23,3 @@ vim.on_key(function(char)
 		vim.opt.hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/" }, vim.fn.keytrans(char))
 	end
 end, vim.api.nvim_create_namespace("auto_hlsearch"))
-
-
-
--- save fold
-autocmd("BufWinEnter", {
-	group = myAutoGroup,
-	pattern = "*",
-	command = "silent! loadview",
-})
-
-autocmd("BufWrite", {
-	group = myAutoGroup,
-	pattern = "*",
-	command = "mkview",
-})
-
-autocmd("BufRead", {
-	group = myAutoGroup,
-	callback = function()
-		vim.api.nvim_create_autocmd("BufWinEnter", {
-			once = true,
-			command = "normal! zx zR",
-		})
-	end,
-})

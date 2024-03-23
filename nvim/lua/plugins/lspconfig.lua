@@ -3,17 +3,17 @@ require('lspconfig').jdtls.setup({})
 require('lspconfig').bashls.setup({})
 require('lspconfig').lua_ls.setup {}
 
-keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
 -- code action
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", {})
 -- go xx
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
-keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-keymap("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {})
+keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {})
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
+keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
+keymap("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 -- diagnostic
-keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
-keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-keymap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
+keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
+keymap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
 vim.cmd("command! F lua vim.lsp.buf.format()")

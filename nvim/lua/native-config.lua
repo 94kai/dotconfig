@@ -38,7 +38,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 vim.o.foldmethod = "indent"
-vim.o.nofoldenable = true
+-- 设置很高的折叠级别，使默认不折叠
+vim.o.foldlevel = 99
 -- 移除空行前面的波浪
 vim.opt.fillchars = { eob = " " }
 keymap("n", "H", ":bp<CR>")
