@@ -1,6 +1,6 @@
 -- servier confit: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 require('lspconfig').jdtls.setup({})
-require('lspconfig').bashls.setup({})
+-- require('lspconfig').bashls.setup({})
 require('lspconfig').lua_ls.setup {}
 
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
