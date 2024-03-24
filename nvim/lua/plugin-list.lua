@@ -38,7 +38,7 @@ return {
 		"karb94/neoscroll.nvim",
 		config = function()
 			require("neoscroll").setup({
-				mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "<C-e>", "zt", "zz", "zb" }, -- 移除对<C-f>的映射，留给nvim-tree
+				mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "zt", "zz", "zb" }, -- 移除对<C-f>的映射，留给nvim-tree,移除对<C-e>的映射，留给%
 			})
 		end,
 	},

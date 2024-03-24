@@ -42,5 +42,8 @@ vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
 -- 移除空行前面的波浪
 vim.opt.fillchars = { eob = " " }
-keymap("n", "H", ":bp<CR>")
-keymap("n", "L", ":bn<CR>")
+keymap("n", "H", "0")
+keymap("n", "L", "$")
+keymap("n", "<C-e>", "%")
+keymap("n", "0", ":bp<CR>")
+keymap("n", "$", ":bn<CR>")
