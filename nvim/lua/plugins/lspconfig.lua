@@ -2,6 +2,7 @@
 require('lspconfig').jdtls.setup({})
 -- require('lspconfig').bashls.setup({})
 require('lspconfig').lua_ls.setup {}
+require('lspconfig').gopls.setup {}
 
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
 -- code action

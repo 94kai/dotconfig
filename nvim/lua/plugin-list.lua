@@ -157,9 +157,6 @@ return {
 		config = true,
 	},
 	{
-		"fatih/vim-go",
-	},
-	{
 		-- 补全插件
 		"hrsh7th/nvim-cmp",
 		dependencies = {

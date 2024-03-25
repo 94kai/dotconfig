@@ -45,5 +45,5 @@ vim.opt.fillchars = { eob = " " }
 keymap("n", "H", "0")
 keymap("n", "L", "$")
 keymap("n", "<C-e>", "%")
-keymap("n", "0", ":bp<CR>")
-keymap("n", "$", ":bn<CR>")
+keymap("n", "(", ":bp<CR>")
+keymap("n", ")", ":bn<CR>")
