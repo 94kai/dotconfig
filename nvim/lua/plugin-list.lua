@@ -165,6 +165,8 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip"
 		},
 		config = function()
 			require("plugins.nvim-cmp")
@@ -197,6 +199,15 @@ return {
 		"junegunn/fzf.vim",
 		dependencies = {
 			"junegunn/fzf"
-		}
-	}
+		},
+		config = function()
+			require("plugins.fzf")
+		end
+	},
+	{
+		"fatih/vim-go",
+		config = function()
+			require("plugins.vim-go")
+		end,
+	},
 }
