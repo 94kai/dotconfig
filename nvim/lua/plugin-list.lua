@@ -104,14 +104,14 @@ return {
 			require("plugins.gitsigns")
 		end,
 	},
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("plugins.telescope")
-		end,
-	},
+	-- {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	tag = "0.1.5",
+	-- 	dependencies = { "nvim-lua/plenary.nvim" },
+	-- 	config = function()
+	-- 		require("plugins.telescope")
+	-- 	end,
+	-- },
 	{
 		"yianwillis/vimcdoc",
 		-- 中文文档插件（需要克隆文档参考https://github.com/yianwillis/vimcdocF
@@ -193,4 +193,10 @@ return {
 			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
 		},
 	},
+	{
+		"junegunn/fzf.vim",
+		dependencies = {
+			"junegunn/fzf"
+		}
+	}
 }
