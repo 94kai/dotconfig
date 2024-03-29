@@ -12,7 +12,7 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {})
 keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {})
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
-keymap("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", {})
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 -- diagnostic
 keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
 keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})

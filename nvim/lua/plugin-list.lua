@@ -33,7 +33,12 @@ return {
 			require("plugins.easymotion")
 		end,
 	},
-	{ "vim-scripts/ReplaceWithRegister" },
+	{
+		"vim-scripts/ReplaceWithRegister",
+		config = function()
+			require("plugins.replace-with-register")
+		end
+	},
 	{
 		"karb94/neoscroll.nvim",
 		config = function()

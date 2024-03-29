@@ -1,2 +1,2 @@
-vim.keymap.set('n', '<leader>zf', ":Files<CR>", {})
-vim.keymap.set('n', '<leader>zr', ":Rg<CR>", {})
+vim.keymap.set('n', '<A-f>', ":Files<CR>", {})
+vim.keymap.set('n', '<A-r>', ":Rg<CR>", {})

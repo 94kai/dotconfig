@@ -42,12 +42,16 @@ vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
 -- 移除空行前面的波浪
 vim.opt.fillchars = { eob = " " }
-keymap({"n","v","o"}, "H", "0")
-keymap({"n","v","o"}, "L", "$")
-keymap({"n","v","o"}, "<C-e>", "%")
-keymap("n", "(", ":bp<CR>")
-keymap("n", ")", ":bn<CR>")
+-- keymap({"n","v","o"}, "H", "0")
+-- keymap({"n","v","o"}, "L", "$")
+-- keymap({"n","v","o"}, "<leader>j", "%")
+-- keymap("n", "<leader>h", ":bp<CR>")
+-- keymap("n", "<leader>l", ":bn<CR>")
+keymap("n", "H", ":bp<CR>")
+keymap("n", "L", ":bn<CR>")
+keymap("n", "<leader>k", ":cprevious<CR>")
+keymap("n", "<leader>j", ":cnext<CR>")
+keymap("n", "<leader>c", ":cclose<CR>")
 
-keymap("n", "<C-n>", ":cnext<CR>")
-keymap("n", "<C-m>", ":cprevious<CR>")
-keymap("n", "<leader>a", ":cclose<CR>")
+-- keymap("n", "<C-n>", ":cnext<CR>")
+-- keymap("n", "<C-m>", ":cprevious<CR>")
