@@ -1,4 +1,7 @@
 -- 所有插件都放在这里
+
+require("plugins.customs.bufonly")
+
 return {
 	{
 		"rcarriga/nvim-notify",
