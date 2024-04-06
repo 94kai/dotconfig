@@ -1,4 +1,5 @@
 function BufOnly(buffer)
+	vim.cmd(":only")
 	local bufNum
 	if buffer == '' then
 		bufNum = vim.fn.bufnr("%")
