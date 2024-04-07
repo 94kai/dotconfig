@@ -119,7 +119,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# 自动启动并attach tmux
-if [ -z "$TMUX" ]; then
-    tmux attach -t 1994 || tmux new -s 1994
+parent_process=$(ps -o comm= -p $PPID)
+echo "parent shell:"$parent_process
+# 判断父进程名称是否包含 'studio'
+if [[ $parent_process == "login" ]]; then
+	# 自动启动并attach tmux
+	echo "自动启动tmux"
+	if [ -z "$TMUX" ]; then
+		tmux attach -t 1994 || tmux new -s 1994
+	fi
 fi
