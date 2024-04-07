@@ -109,7 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="nvim"
-source ~/.bash_profile
+
+BASH_PROFILE=~/.bash_profile
+if [ -f "$BASH_PROFILE" ]; then
+	source $BASH_PROFILE
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
