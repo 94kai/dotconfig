@@ -22,11 +22,11 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = 'vsnip' }, -- For vsnip users.
         { name = 'path' }, -- For vsnip users.
+        { name = "buffer" },
+        { name = "orgmode" },
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
-    }, {
-        { name = "buffer" },
     }),
     window = {
         completion = cmp.config.window.bordered(),

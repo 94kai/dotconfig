@@ -156,7 +156,7 @@ return {
 		-- lsp的配置
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.lspconfig")
+			require("plugins.lsp.lspconfig")
 		end,
 	},
 	{
@@ -218,4 +218,24 @@ return {
 			require("plugins.vim-go")
 		end,
 	},
+	{
+		'mfussenegger/nvim-dap',
+		config = function()
+			require("plugins.dap.dapconfig")
+		end
+	},
+	{
+		'nvim-orgmode/orgmode',
+		event = 'VeryLazy',
+		ft = { 'org' },
+		config = function()
+			require('plugins.orgmode')
+		end,
+	},
+	{
+		'voldikss/vim-translator',
+		config = function()
+			require('plugins.vim-translator')
+		end
+	}
 }

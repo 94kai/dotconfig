@@ -3,7 +3,7 @@ local notify = pRequire("notify")
 local cfg = {
   enable = true,
   ---@type number in millionsecond
-  timeout = 5000,
+  timeout = 500,
   ---@type 'fade' | 'static' | 'slide'
   stages = "fade",
   ---@type  'defalut' | 'minimal' | 'simple'

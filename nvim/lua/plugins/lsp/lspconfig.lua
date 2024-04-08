@@ -4,7 +4,22 @@ require('lspconfig').clangd.setup({})
 -- require('lspconfig').bashls.setup({})
 require('lspconfig').lua_ls.setup {}
 require('lspconfig').gopls.setup {}
-
+require('lspconfig').pylsp.setup {}
+require('lspconfig').jsonls.setup{
+  settings = {
+    json = {
+      schemas = {
+        {
+          fileMatch = {"*.json"},
+          url = "http://json.schemastore.org/tsconfig"
+        }
+      }
+    },
+    format = {
+      enable = true
+    }
+  }
+}
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
 -- code action
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", {})
