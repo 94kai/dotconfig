@@ -1,2 +1,2 @@
 require('lspconfig').pylsp.setup {}
-keymap("n", "<F5>", ":!python3 %<CR>", {})
+vim.api.nvim_exec([[ autocmd FileType python nnoremap <buffer> <F5> :!python3 %<CR> ]], false)

@@ -1,4 +1,5 @@
 require('plugins.dap.python')
+require('plugins.dap.go')
 
 keymap("n", "<F8>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {})
 keymap("n", "<F9>", "<cmd>lua require'dap'.continue()<CR>", {})
