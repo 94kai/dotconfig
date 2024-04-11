@@ -20,7 +20,8 @@ set scrolloff=5
 set incsearch					" 搜索时，实时高亮
 set ignorecase					" 忽略大小写
 set smartcase					" 智能大小写
-set history=2000					" 设置历史条数
+set history=2000			    " 设置历史条数
+set clipboard=unnamedplus     " 剪切板共享
 set showcmd						" 显示当前输入的命令
 set surround
 

@@ -27,7 +27,8 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 vim.opt.shortmess = vim.opt.shortmess + "S"
-
+-- 使用+ *寄存器进行默认的y/c/d/p等。mac/linux上+/*同步
+vim.o.clipboard = "unnamedplus"
 -- 复制代码高亮
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),

@@ -128,29 +128,12 @@ return {
 		"tpope/vim-surround",
 	},
 	{
-		"nvim-java/nvim-java",
-		dependencies = {
-			"nvim-java/lua-async-await",
-			"nvim-java/nvim-java-core",
-			"nvim-java/nvim-java-test",
-			"nvim-java/nvim-java-dap",
-			"MunifTanjim/nui.nvim",
-			"neovim/nvim-lspconfig",
-			"mfussenegger/nvim-jdtls",
-			"mfussenegger/nvim-dap",
-			{
-				"williamboman/mason.nvim",
-				opts = {
-					registries = {
-						"github:nvim-java/mason-registry",
-						"github:mason-org/mason-registry",
-					},
-				},
+		"williamboman/mason.nvim",
+		opts = {
+			registries = {
+				"github:mason-org/mason-registry",
 			},
-			config = function()
-				require('java').setup()
-			end,
-		},
+		}
 	},
 	{
 		-- lsp的配置
@@ -168,7 +151,6 @@ return {
 		-- 补全插件
 		"hrsh7th/nvim-cmp",
 		dependencies = {
-			"neovim/nvim-lspconfig",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -213,13 +195,12 @@ return {
 		end
 	},
 	{
-		"fatih/vim-go",
-		config = function()
-			require("plugins.vim-go")
-		end,
-	},
-	{
 		'mfussenegger/nvim-dap',
+		dependencies = {
+			'theHamsta/nvim-dap-virtual-text', -- 代码旁边显示变量数据
+			"nvim-neotest/nvim-nio",  -- 提供异步能力
+			"rcarriga/nvim-dap-ui",   -- 调试UI窗口
+		},
 		config = function()
 			require("plugins.dap.dapconfig")
 		end
@@ -237,5 +218,5 @@ return {
 		config = function()
 			require('plugins.vim-translator')
 		end
-	}
+	},
 }
