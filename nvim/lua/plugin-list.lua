@@ -139,7 +139,7 @@ return {
 		-- lsp的配置
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.lsp.lspconfig")
+			require("plugins.lsp.lsp-config")
 		end,
 	},
 	{
@@ -202,7 +202,7 @@ return {
 			"rcarriga/nvim-dap-ui",   -- 调试UI窗口
 		},
 		config = function()
-			require("plugins.dap.dapconfig")
+			require("plugins.dap.dap-config")
 		end
 	},
 	{

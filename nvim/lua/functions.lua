@@ -27,6 +27,10 @@ function _G.keymap(mode, lhs, rhs, opts)
 end
 
 
+function _G.delkeymap(mode, lhs)
+  vim.keymap.del(mode, lhs)
+end
+
 function _G.isWSL()
   local output = vim.fn.systemlist("uname -r")
   return not not string.find(output[1] or "", "WSL")
