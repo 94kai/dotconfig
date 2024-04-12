@@ -1,8 +1,12 @@
 -- 所有插件都放在这里
-
 require("plugins.customs.bufonly")
+local status, ignorePlugin = pcall(require,"ignore-config")
 
+if not status then
+	ignorePlugin = {}
+end
 return {
+	ignorePlugin,
 	{
 		"rcarriga/nvim-notify",
 		config = function()

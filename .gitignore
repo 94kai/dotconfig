@@ -1,2 +1,3 @@
 nvim/lazy-lock.json
 nvim/.netrwhist
+nvim/lua/ignore-config.lua
