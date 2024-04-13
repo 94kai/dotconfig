@@ -1,5 +1,5 @@
 vim.cmd [[colorscheme moonfly]]
-
+vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
 -- local tokyonight = pRequire("tokyonight")
 -- if tokyonight then
 --   tokyonight.setup({
