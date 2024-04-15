@@ -15,7 +15,7 @@ if notify and cfg and cfg.enable then
     stages = cfg.stages,
     timeout = cfg.timeout,
     render = cfg.render,
-    -- background_colour = "#ff3300"  
+    background_colour = "#000000"
   })
   vim.notify = notify
 end
