@@ -63,3 +63,6 @@ if gitsigns and cfg and cfg.enable then
 		-- on_attach = gitsigns_on_attach,
 	})
 end
+keymap("n", "<leader>gdt", ":Gitsigns diffthis<CR>")
+keymap("n", "<leader>gbl", ":Gitsigns blame_line<CR>")
+keymap("n", "<leader>gc", ":-close<CR>")

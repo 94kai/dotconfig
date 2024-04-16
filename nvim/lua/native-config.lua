@@ -20,6 +20,7 @@ vim.o.rule = false
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.ttimeoutlen = 50
+vim.o.timeoutlen = 3000
 vim.o.autoread = true
 vim.o.whichwrap = "<,>,[,]"
 vim.o.hidden = true
