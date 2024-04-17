@@ -1,5 +1,6 @@
+vim.g.moonflyTransparent = true
 vim.cmd [[colorscheme moonfly]]
-vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
+-- vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
 -- local tokyonight = pRequire("tokyonight")
 -- if tokyonight then
 --   tokyonight.setup({

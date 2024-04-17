@@ -71,7 +71,3 @@ map <S-Space> <Action>(GotoNextError)
 " 简单的方案解决*/#查询选择区域，对于特殊字符可能会有问题，如选中.会查询所有
 vmap * y/<C-R>"<CR>
 vmap # y?<C-R>"<CR>
-
-nmap gR <Plug>ReplaceWithRegisterOperator
-nmap gRR <Plug>ReplaceWithRegisterLine
-xmap gR <Plug>ReplaceWithRegisterVisual
