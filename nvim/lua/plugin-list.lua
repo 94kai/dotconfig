@@ -210,14 +210,6 @@ return {
 		end
 	},
 	{
-		'nvim-orgmode/orgmode',
-		event = 'VeryLazy',
-		ft = { 'org' },
-		config = function()
-			require('plugins.orgmode')
-		end,
-	},
-	{
 		'voldikss/vim-translator',
 		config = function()
 			require('plugins.vim-translator')
