@@ -3,7 +3,8 @@ git@github.com:94kai/dotconfig.git
 
 # ================neovim相关
 ln -s ~/project/dotconfig/nvim ~/.config/nvim
-# 注释掉init.lua中插件的加载，保证lazy库先clone成功，然后再解开注释
+
+# 启动neovim，等待Lazy克隆成功后，关闭重启启动即可
 
 # 安装字体补丁(Noto Nerd Font)
 brew tap homebrew/cask-fonts
@@ -32,4 +33,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Ctrl-s shift-I 安装tmux插件
 
 
-ln -s ~/project/dotconfig/ideavim.vim ~/.ideavim.vim
+# ================ideavim相关
+ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
