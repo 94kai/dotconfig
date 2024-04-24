@@ -1,6 +1,6 @@
 -- 所有插件都放在这里
 require("plugins.customs.bufonly")
-local status, ignorePlugin = pcall(require,"ignore-config")
+local status, ignorePlugin = pcall(require, "ignore-config")
 
 if not status then
 	ignorePlugin = {}
@@ -215,4 +215,32 @@ return {
 			require('plugins.vim-translator')
 		end
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
+	},
+	{
+		"yegappan/taglist",
+		config = function()
+			require("plugins.taglist")
+		end
+	},
+	{
+		"dhananjaylatkar/cscope_maps.nvim",
+		dependencies = {
+			"folke/which-key.nvim", -- optional [for whichkey hints]
+			-- "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
+			-- "ibhagwan/fzf-lua",     -- optional [for picker="fzf-lua"]
+			-- "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
+		},
+		opts = {
+			-- USE EMPTY FOR DEFAULT OPTIONS
+			-- DEFAULTS ARE LISTED BELOW
+		},
+		config = function()
+			require("plugins.cscope_maps")
+		end
+	}
 }

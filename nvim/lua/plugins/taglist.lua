@@ -1,0 +1,5 @@
+vim.cmd("let Tlist_Ctags_Cmd='/opt/homebrew/bin/ctags'")
+vim.cmd("let Tlist_Use_Right_Window = 1")
+vim.cmd("let Tlist_Exit_OnlyWindow = 1")
+vim.cmd("let Tlist_Show_One_File = 1")
+vim.cmd("let Tlist_WinWidth = 50")

@@ -16,10 +16,8 @@ if nvimTree then
             ignore = true,
         },
         filters = {
-            -- hide dot files
-            dotfiles = true,
-            -- hide node_modules folder
-            -- custom = { "node_modules" },
+			git_ignored = false,
+			dotfiles = false,
         },
         view = {
             width = 34,

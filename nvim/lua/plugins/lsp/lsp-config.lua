@@ -3,7 +3,11 @@ require('plugins.lsp.json')
 require('plugins.lsp.python')
 -- servier confit: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 require('lspconfig').jdtls.setup({})
-require('lspconfig').clangd.setup({})
+require('lspconfig').clangd.setup({
+	cmd = {
+		"clangd","--log=verbose"
+	}
+})
 -- require('lspconfig').bashls.setup({})
 require('lspconfig').lua_ls.setup {}
 
