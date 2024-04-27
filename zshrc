@@ -1,3 +1,8 @@
+BASH_PROFILE=~/.bash_profile
+if [ -f "$BASH_PROFILE" ]; then
+	source $BASH_PROFILE
+fi
+
 # ln -s /Users/xuekai/.config/nvim/zshrc ~/.zshrc
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -10,7 +15,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="af-magic"
+
+# 可以在.bash_profile配置下面主题
+# export CUSTOM_ZSH_THEME=amuse
+if [ -z "${CUSTOM_ZSH_THEME}" ]; then
+	ZSH_THEME="af-magic"
+else
+	ZSH_THEME="${CUSTOM_ZSH_THEME}"
+fi
 #ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
@@ -110,13 +122,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="nvim"
 
-BASH_PROFILE=~/.bash_profile
-if [ -f "$BASH_PROFILE" ]; then
-	source $BASH_PROFILE
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias t="tmux attach -t 1994 || tmux new -s 1994"
+
+# 可以在.bash_profile配置下面配置CUSTOM_TMUX_SESSION_NAME
+# export CUSTOM_TMUX_SESSION_NAME=linux
+if [ -z "${CUSTOM_TMUX_SESSION_NAME}" ]; then
+	alias t="tmux attach -t 1994 || tmux new -s 1994"
+else
+	alias t="tmux attach -t ${CUSTOM_TMUX_SESSION_NAME} || tmux new -s ${CUSTOM_TMUX_SESSION_NAME}"
+fi
