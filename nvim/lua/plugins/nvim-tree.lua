@@ -1,8 +1,7 @@
 -- 目录
 local nvimTree = pRequire("nvim-tree")
 if nvimTree then
-    keymap("n", "<C-t>", "<CMD>NvimTreeToggle<CR>")
-    keymap("n", "<C-f>", "<CMD>NvimTreeFocus<CR>")
+    keymap("n", "<C-f>", "<CMD>NvimTreeToggle<CR>")
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 

@@ -242,5 +242,12 @@ return {
 		config = function()
 			require("plugins.cscope_maps")
 		end
+	},
+	{
+		'skywind3000/vim-preview',
+		config = function()
+			vim.cmd("autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>")
+			vim.cmd("autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>")
+		end
 	}
 }

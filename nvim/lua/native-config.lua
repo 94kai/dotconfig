@@ -28,6 +28,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 vim.opt.shortmess = vim.opt.shortmess + "S"
+vim.o.undofile = true
 -- 使用+ *寄存器进行默认的y/c/d/p等。mac/linux上+/*同步
 vim.o.clipboard = "unnamedplus"
 -- 复制代码高亮
@@ -57,4 +58,3 @@ keymap("n", "<leader>l", ":cclose<CR>")
 
 -- keymap("n", "<C-n>", ":cnext<CR>")
 -- keymap("n", "<C-m>", ":cprevious<CR>")
-
