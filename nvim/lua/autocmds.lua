@@ -23,3 +23,14 @@ vim.on_key(function(char)
 		vim.opt.hlsearch = vim.tbl_contains({ "<CR>", "n", "N", "*", "#", "?", "/" }, vim.fn.keytrans(char))
 	end
 end, vim.api.nvim_create_namespace("auto_hlsearch"))
+
+autocmd("BufRead", {
+	group = myAutoGroup,
+	callback = function()
+		local fsize = vim.fn.getfsize(vim.fn.expand('%:p'))
+		-- 文件大于10M，把filetype设置为空，避免lsp/treesitter工作
+		if (fsize > 1024 * 1024 * 10) then
+			vim.cmd(":set filetype=")
+		end
+	end
+})

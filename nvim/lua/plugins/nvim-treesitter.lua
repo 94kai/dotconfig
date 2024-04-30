@@ -10,8 +10,7 @@ require 'nvim-treesitter.configs'.setup {
 	auto_install = true,
 
 	-- List of parsers to ignore installing (or "all")
-	-- 避免大json导致卡顿
-	ignore_install = { "javascript", "org", "json" },
+	ignore_install = { "javascript", "org" },
 
 	---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
 	-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
