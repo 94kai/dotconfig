@@ -134,3 +134,5 @@ if [ -z "${CUSTOM_TMUX_SESSION_NAME}" ]; then
 else
 	alias t="tmux attach -t ${CUSTOM_TMUX_SESSION_NAME} || tmux new -s ${CUSTOM_TMUX_SESSION_NAME}"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

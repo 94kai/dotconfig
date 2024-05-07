@@ -81,12 +81,12 @@ return {
 			require("plugins.indent-blankline")
 		end,
 	},
-	{
-		"voldikss/vim-floaterm",
-		config = function()
-			require("plugins.floaterm")
-		end,
-	},
+	-- {
+	-- 	"voldikss/vim-floaterm",
+	-- 	config = function()
+	-- 		require("plugins.floaterm")
+	-- 	end,
+	-- },
 	-- {
 	-- 	'gen740/SmoothCursor.nvim',
 	-- 	config = function()
@@ -190,11 +190,13 @@ return {
 		},
 	},
 	{
-		"junegunn/fzf.vim",
+		"ibhagwan/fzf-lua",
+		-- for icon support
 		dependencies = {
-			"junegunn/fzf"
+			"nvim-tree/nvim-web-devicons"
 		},
 		config = function()
+			-- calling `setup` is optional for customization
 			require("plugins.fzf")
 		end
 	},
