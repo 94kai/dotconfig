@@ -35,7 +35,7 @@ return {
 		"unblevable/quick-scope",
 	},
 	-- {
-		-- 用flash的s代替
+	-- 用flash的s代替
 	-- 	"easymotion/vim-easymotion",
 	-- 	config = function()
 	-- 		require("plugins.easymotion")
@@ -230,22 +230,22 @@ return {
 			require("plugins.taglist")
 		end
 	},
-	{
-		"dhananjaylatkar/cscope_maps.nvim",
-		dependencies = {
-			"folke/which-key.nvim", -- optional [for whichkey hints]
-			-- "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
-			-- "ibhagwan/fzf-lua",     -- optional [for picker="fzf-lua"]
-			-- "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
-		},
-		opts = {
-			-- USE EMPTY FOR DEFAULT OPTIONS
-			-- DEFAULTS ARE LISTED BELOW
-		},
-		config = function()
-			require("plugins.cscope_maps")
-		end
-	},
+	-- {
+	-- 	"dhananjaylatkar/cscope_maps.nvim",
+	-- 	dependencies = {
+	-- 		"folke/which-key.nvim", -- optional [for whichkey hints]
+	-- 		-- "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
+	-- 		-- "ibhagwan/fzf-lua",     -- optional [for picker="fzf-lua"]
+	-- 		-- "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
+	-- 	},
+	-- 	opts = {
+	-- 		-- USE EMPTY FOR DEFAULT OPTIONS
+	-- 		-- DEFAULTS ARE LISTED BELOW
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.cscope_maps")
+	-- 	end
+	-- },
 	{
 		'skywind3000/vim-preview',
 		config = function()
@@ -260,11 +260,11 @@ return {
 		opts = {},
 		-- stylua: ignore
 		keys = {
-			{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-			{ "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-		-- 	{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-		-- 	{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-		-- 	{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+			{ "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+			-- 	{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+			-- 	{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			-- 	{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
 		},
 	}
 }
