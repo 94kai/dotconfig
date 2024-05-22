@@ -34,12 +34,13 @@ return {
 	{
 		"unblevable/quick-scope",
 	},
-	{
-		"easymotion/vim-easymotion",
-		config = function()
-			require("plugins.easymotion")
-		end,
-	},
+	-- {
+		-- 用flash的s代替
+	-- 	"easymotion/vim-easymotion",
+	-- 	config = function()
+	-- 		require("plugins.easymotion")
+	-- 	end,
+	-- },
 	{
 		"vim-scripts/ReplaceWithRegister",
 		config = function()
@@ -251,5 +252,19 @@ return {
 			vim.cmd("autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>")
 			vim.cmd("autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>")
 		end
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+			{ "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+		-- 	{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+		-- 	{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+		-- 	{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+		-- },
 	}
 }
