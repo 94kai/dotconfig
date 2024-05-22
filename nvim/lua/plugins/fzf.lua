@@ -1,4 +1,7 @@
 vim.keymap.set('n', '<A-f>', ":FzfLua<CR>", {})
+vim.keymap.set('n', '<leader>ff', ":FzfLua files<CR>", {})
+vim.keymap.set('n', '<leader>fg', ":FzfLua live_grep_glob<CR>", {})
+vim.keymap.set('n', '<leader>fv', ":FzfLua git_bcommits<CR>", {})
 -- vim.keymap.set('n', '<A-r>', ":Rg<CR>", {})
 -- vim.cmd("let g:fzf_history_dir = '~/.local/share/fzf-history'")
 --
