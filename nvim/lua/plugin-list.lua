@@ -25,7 +25,7 @@ return {
 			require("plugins.bufferline")
 		end,
 	},
-	{
+	{   -- 会导致有大量行数变更时，q!执行很慢
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.lualine")
@@ -166,7 +166,7 @@ return {
 		config = true,
 	},
 	{
-		-- 补全插件
+		-- 补全插件 会导致批量操作（normal命令）巨慢无比
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",

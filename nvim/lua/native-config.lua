@@ -38,7 +38,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
 })
-vim.o.foldmethod = "indent"
+-- 会导致批量修改文本卡顿
+-- vim.o.foldmethod = "indent"
 -- 设置很高的折叠级别，使默认不折叠
 vim.o.foldlevel = 99
 -- 移除空行前面的波浪
