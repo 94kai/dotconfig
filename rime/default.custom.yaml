@@ -1,0 +1,9 @@
+# 鼠鬚管
+patch:
+  ascii_composer/good_old_caps_lock: true
+  ascii_composer/switch_key:
+    Shift_L: noop
+    Shift_R: commit_code
+patch:
+  schema_list:
+    - schema: luna_pinyin_simp # 简体
