@@ -25,7 +25,7 @@ set clipboard=unnamedplus     " 剪切板共享
 set showcmd						" 显示当前输入的命令
 set surround
 
-set keep-english-in-normal-and-restore-in-insert		" 自动切输入法插件
+"set keep-english-in-normal-and-restore-in-insert		" 自动切输入法插件
 set commentary											" 用gc注释代码
 set easymotion											" 快速跳转到指定字符
 set ReplaceWithRegister									" 用gr来粘贴字符串
