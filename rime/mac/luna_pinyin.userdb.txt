@@ -3,7 +3,7 @@
 #@/db_type	userdb
 #@/rime_version	1.11.2
 #@/tick	988
-#@/user_id	1994
+#@/user_id	mac
 a 	啊	c=1 d=0.0493999 t=988
 an zhao 	按照	c=1 d=0.18961 t=988
 ba 	吧	c=2 d=0.0824674 t=988
