@@ -17,7 +17,7 @@ patch:
       ascii_mode: true
       vim_mode: true
   style:
-    horizontal: true # 横排显示
+    candidate_list_layout: linear # 横排显示
     inline_preedit: false # 非內嵌編碼行
     font_point: 20 # 字號
     corner_radius: 3 # 窗口圓角半徑

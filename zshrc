@@ -123,7 +123,8 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias vim="nvim"
 alias vimdiff="v -d"
-alias ov="vi"
+alias vi="nvim"
+alias ov="vim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
