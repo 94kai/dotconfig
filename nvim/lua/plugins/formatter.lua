@@ -37,13 +37,15 @@ require("formatter").setup({
       -- 需要先安装black：pip3 install git+https://github.com/psf/black
       require("formatter.filetypes.python").black,
     },
-
+    json = {
+      require("formatter.filetypes.json").prettier,
+    },
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
-    ["*"] = {
-      -- "formatter.filetypes.any" defines default configurations for any
-      -- filetype
-      require("formatter.filetypes.any").remove_trailing_whitespace,
-    },
+    -- ["*"] = {
+    --   -- "formatter.filetypes.any" defines default configurations for any
+    --   -- filetype
+    --   require("formatter.filetypes.any").remove_trailing_whitespace,
+    -- },
   },
 })

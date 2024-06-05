@@ -1,5 +1,5 @@
 require("plugins.lsp.go")
-require("plugins.lsp.json")
+-- require("plugins.lsp.json")
 require("plugins.lsp.python")
 -- servier confit: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 require("lspconfig").jdtls.setup({})
