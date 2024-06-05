@@ -40,6 +40,10 @@ require("formatter").setup({
     json = {
       require("formatter.filetypes.json").prettier,
     },
+    javascript = {
+      -- 需要先安装js-beautify：pip install jsbeautifier
+      require("formatter.filetypes.javascript").jsbeautify,
+    },
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
     -- ["*"] = {
