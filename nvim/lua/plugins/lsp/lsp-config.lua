@@ -1,17 +1,16 @@
-require('plugins.lsp.go')
-require('plugins.lsp.json')
-require('plugins.lsp.python')
+require("plugins.lsp.go")
+require("plugins.lsp.json")
+require("plugins.lsp.python")
 -- servier confit: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-require('lspconfig').jdtls.setup({})
-require('lspconfig').clangd.setup({
-	cmd = {
-		"clangd","--log=verbose"
-	}
+require("lspconfig").jdtls.setup({})
+require("lspconfig").clangd.setup({
+  cmd = {
+    "clangd",
+    "--log=verbose",
+  },
 })
 -- require('lspconfig').bashls.setup({})
-require('lspconfig').lua_ls.setup {}
-
-
+require("lspconfig").lua_ls.setup({})
 
 keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
 -- code action
@@ -26,4 +25,3 @@ keymap("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
 keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
 keymap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
-vim.cmd("command! F lua vim.lsp.buf.format()")
