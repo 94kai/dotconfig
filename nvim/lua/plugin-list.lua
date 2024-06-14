@@ -33,6 +33,7 @@ return {
   },
   {
     "unblevable/quick-scope",
+    event = "VeryLazy",
   },
   {
     "folke/which-key.nvim",
@@ -56,6 +57,7 @@ return {
   -- },
   {
     "vim-scripts/ReplaceWithRegister",
+    event = "VeryLazy",
     config = function()
       require("plugins.replace-with-register")
     end,
@@ -78,18 +80,21 @@ return {
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugins.rainbow-delimiters")
     end,
   },
   {
     "numToStr/Comment.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugins.comment")
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
     main = "ibl",
     config = function()
       require("plugins.indent-blankline")
@@ -108,16 +113,16 @@ return {
   -- 	end
   -- },
   -- 主题---------------
-  {
-    "folke/tokyonight.nvim",
-    config = function()
-      require("plugins.theme")
-    end,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  -- event = "VeryLazy",
+  --   config = function()
+  --     require("plugins.theme")
+  --   end,
+  -- },
   {
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
-    lazy = false,
     priority = 1000,
     config = function()
       require("plugins.theme")
@@ -126,6 +131,7 @@ return {
   -- 主题---------------
   {
     "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugins.gitsigns")
     end,
@@ -140,13 +146,16 @@ return {
   -- },
   {
     "yianwillis/vimcdoc",
+    event = "VeryLazy",
     -- 中文文档插件（需要克隆文档参考https://github.com/yianwillis/vimcdocF
   },
   {
     "tpope/vim-surround",
+    event = "VeryLazy",
   },
   {
     "williamboman/mason.nvim",
+    event = "VeryLazy",
     opts = {
       registries = {
         "github:mason-org/mason-registry",
@@ -156,6 +165,7 @@ return {
   {
     -- lsp的配置
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     config = function()
       require("plugins.lsp.lsp-config")
     end,
@@ -168,6 +178,7 @@ return {
   {
     -- 补全插件 会导致批量操作（normal命令）巨慢无比
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -183,6 +194,7 @@ return {
   {
     -- 代码高亮
     "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
     config = function()
       require("plugins.nvim-treesitter")
     end,
@@ -209,6 +221,12 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    keys = {
+      { "<leader>ff", mode = { "n" }, ":FzfLua files<CR>" },
+      { "<leader>fg", mode = { "n" }, ":FzfLua live_grep_glob<CR>" },
+      { "<leader>fv", mode = { "n" }, ":FzfLua git_bcommits<CR>" },
+      { "<A-f>", mode = { "n" }, ":FzfLua<CR>" },
+    },
     config = function()
       -- calling `setup` is optional for customization
       require("plugins.fzf")
@@ -216,6 +234,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     dependencies = {
       "theHamsta/nvim-dap-virtual-text", -- 代码旁边显示变量数据
       "nvim-neotest/nvim-nio", -- 提供异步能力
@@ -227,6 +246,7 @@ return {
   },
   {
     "voldikss/vim-translator",
+    event = "VeryLazy",
     config = function()
       require("plugins.vim-translator")
     end,
@@ -241,6 +261,7 @@ return {
   },
   {
     "yegappan/taglist",
+    event = "VeryLazy",
     config = function()
       require("plugins.taglist")
     end,
@@ -263,6 +284,7 @@ return {
   -- },
   {
     "skywind3000/vim-preview",
+    event = "VeryLazy",
     config = function()
       vim.cmd("autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>")
       vim.cmd("autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>")
@@ -273,12 +295,12 @@ return {
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {
-			modes = {
-				char  ={
-					enabled = false
-				}
-			}
-		},
+      modes = {
+        char = {
+          enabled = false,
+        },
+      },
+    },
 		-- stylua: ignore
 		keys = {
 			{ "<leader>s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
@@ -290,12 +312,14 @@ return {
   },
   {
     "mhartington/formatter.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugins.formatter")
     end,
   },
   {
     "aserebryakov/vim-todo-lists",
+    event = "VeryLazy",
     config = function()
       vim.cmd("let g:VimTodoListsDatesEnabled = 1")
       vim.cmd("let g:VimTodoListsDatesFormat = '%Y-%m-%d %H:%M:%S %A'")
@@ -306,6 +330,7 @@ return {
   },
   {
     "tris203/precognition.nvim",
+    event = "VeryLazy",
     --event = "VeryLazy",
     opts = {
       -- startVisible = true,
