@@ -124,7 +124,8 @@ alias v="nvim"
 alias vim="nvim"
 alias vimdiff="v -d"
 alias vi="nvim"
-alias ov="vim"
+alias ov="/usr/bin/vim"
+alias todo="v ~/project/todolist/work.todo.md"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

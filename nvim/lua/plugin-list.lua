@@ -60,14 +60,14 @@ return {
       require("plugins.replace-with-register")
     end,
   },
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup({
-        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "zt", "zz", "zb" }, -- 移除对<C-f>的映射，留给nvim-tree,移除对<C-e>的映射，留给%
-      })
-    end,
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   config = function()
+  --     require("neoscroll").setup({
+  --       mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "zt", "zz", "zb" }, -- 移除对<C-f>的映射，留给nvim-tree,移除对<C-e>的映射，留给%
+  --     })
+  --   end,
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -293,5 +293,42 @@ return {
     config = function()
       require("plugins.formatter")
     end,
+  },
+  {
+    "aserebryakov/vim-todo-lists",
+    config = function()
+      vim.cmd("let g:VimTodoListsDatesEnabled = 1")
+      vim.cmd("let g:VimTodoListsDatesFormat = '%Y-%m-%d %H:%M:%S %A'")
+      vim.cmd("let g:VimTodoListsUndoneItem = '󰄱'")
+      vim.cmd("let g:VimTodoListsDoneItem = '󰄲'")
+      vim.cmd("autocmd FileType todo nnoremap <buffer> q :wqa<CR>")
+    end,
+  },
+  {
+    "tris203/precognition.nvim",
+    --event = "VeryLazy",
+    opts = {
+      -- startVisible = true,
+      -- showBlankVirtLine = true,
+      -- highlightColor = { link = "Comment" },
+      -- hints = {
+      --      Caret = { text = "^", prio = 2 },
+      --      Dollar = { text = "$", prio = 1 },
+      --      MatchingPair = { text = "%", prio = 5 },
+      --      Zero = { text = "0", prio = 1 },
+      --      w = { text = "w", prio = 10 },
+      --      b = { text = "b", prio = 9 },
+      --      e = { text = "e", prio = 8 },
+      --      W = { text = "W", prio = 7 },
+      --      B = { text = "B", prio = 6 },
+      --      E = { text = "E", prio = 5 },
+      -- },
+      -- gutterHints = {
+      --     G = { text = "G", prio = 10 },
+      --     gg = { text = "gg", prio = 9 },
+      --     PrevParagraph = { text = "{", prio = 8 },
+      --     NextParagraph = { text = "}", prio = 8 },
+      -- },
+    },
   },
 }
