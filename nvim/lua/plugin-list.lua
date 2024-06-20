@@ -316,7 +316,6 @@ return {
   },
   {
     "aserebryakov/vim-todo-lists",
-    event = "VeryLazy",
     config = function()
       vim.cmd("let g:VimTodoListsDatesEnabled = 1")
       vim.cmd("let g:VimTodoListsDatesFormat = '%Y-%m-%d %H:%M:%S %A'")
