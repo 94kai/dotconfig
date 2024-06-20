@@ -62,14 +62,12 @@ return {
       require("plugins.replace-with-register")
     end,
   },
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   config = function()
-  --     require("neoscroll").setup({
-  --       mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "zt", "zz", "zb" }, -- 移除对<C-f>的映射，留给nvim-tree,移除对<C-e>的映射，留给%
-  --     })
-  --   end,
-  -- },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("plugins.neoscroll")
+    end,
+  },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -178,7 +176,6 @@ return {
   {
     -- 补全插件 会导致批量操作（normal命令）巨慢无比
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -259,13 +256,13 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
-  {
-    "yegappan/taglist",
-    event = "VeryLazy",
-    config = function()
-      require("plugins.taglist")
-    end,
-  },
+  -- {
+  --   "yegappan/taglist",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("plugins.taglist")
+  --   end,
+  -- },
   -- {
   -- 	"dhananjaylatkar/cscope_maps.nvim",
   -- 	dependencies = {
@@ -333,7 +330,7 @@ return {
     event = "VeryLazy",
     --event = "VeryLazy",
     opts = {
-      -- startVisible = true,
+      startVisible = false,
       -- showBlankVirtLine = true,
       -- highlightColor = { link = "Comment" },
       -- hints = {
