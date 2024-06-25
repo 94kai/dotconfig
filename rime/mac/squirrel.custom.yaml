@@ -16,6 +16,12 @@ patch:
     com.huawei.devecostudio.ds:
       ascii_mode: true
       vim_mode: true
+    com.jetbrains.goland:
+      ascii_mode: true
+      vim_mode: true
+    com.jetbrains.WebStorm:
+      ascii_mode: true
+      vim_mode: true
   style:
     candidate_list_layout: linear # 横排显示
     inline_preedit: false # 非內嵌編碼行
