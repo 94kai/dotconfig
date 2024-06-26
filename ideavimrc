@@ -51,7 +51,7 @@ let g:highlightedyank_highlight_duration = "200"		" 设置高亮时间
 set ideajoin											" 智能连接。如字符串、表达式从两行连接成1行时，智能重构
 set ideastatusicon=gray                                 " ideavim图标设为灰色
 set idearefactormode=keep                               " 所有mode下都可以使用idea的重构代码能力
-map <leader>f <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
 
 map <C-t> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
