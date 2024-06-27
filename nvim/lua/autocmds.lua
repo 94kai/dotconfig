@@ -2,7 +2,6 @@ local vim = vim
 local myAutoGroup = vim.api.nvim_create_augroup("myAutoGroup", {})
 
 local autocmd = vim.api.nvim_create_autocmd
-local lastTime = os.time()
 
 -- https://www.reddit.com/r/neovim/comments/zc720y/tip_to_manage_hlsearch/
 -- 添加一个id为第二个参数的listener
@@ -14,15 +13,15 @@ vim.on_key(function(char)
   end
 end, vim.api.nvim_create_namespace("auto_hlsearch"))
 
-autocmd("BufRead", {
-  group = myAutoGroup,
-  callback = function()
-    local fsize = vim.fn.getfsize(vim.fn.expand("%:p"))
-    -- 文件大于10M，把filetype设置为空，避免lsp/treesitter工作
-    if fsize > 1024 * 1024 * 10 then
-      vim.cmd(":set filetype=")
-    end
-  end,
-})
+-- autocmd("BufRead", {
+--   group = myAutoGroup,
+--   callback = function()
+--     local fsize = vim.fn.getfsize(vim.fn.expand("%:p"))
+--     -- 文件大于10M，把filetype设置为空，避免lsp/treesitter工作
+--     if fsize > 1024 * 1024 * 10 then
+--       vim.cmd(":set filetype=")
+--     end
+--   end,
+-- })
 
 vim.cmd("autocmd FileType lua setlocal tabstop=2 shiftwidth=2")

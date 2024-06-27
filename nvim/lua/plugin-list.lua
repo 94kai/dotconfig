@@ -176,6 +176,7 @@ return {
   {
     -- 补全插件 会导致批量操作（normal命令）巨慢无比
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
