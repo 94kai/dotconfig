@@ -5,18 +5,26 @@ local status, ignorePlugin = pcall(require, "ignore-config")
 if not status then
   ignorePlugin = {}
 end
+
+local nvimTreeConfig = {
+  "kyazdani42/nvim-tree.lua",
+  config = function()
+    require("plugins.nvim-tree")
+  end,
+}
+
+if isOpenDir() ~= 1 then
+  keymap("n", "<C-f>", "<CMD>NvimTreeToggle<CR>")
+  nvimTreeConfig.cmd = { "NvimTreeToggle", "NvimTreeFocus" }
+end
+
 return {
   ignorePlugin,
+  nvimTreeConfig,
   {
     "rcarriga/nvim-notify",
     config = function()
       require("plugins.nvim-notify")
-    end,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("plugins.nvim-tree")
     end,
   },
   {
