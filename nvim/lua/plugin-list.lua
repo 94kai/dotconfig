@@ -326,6 +326,7 @@ return {
   {
     "94kai/todolist.nvim",
     config = function()
+      vim.cmd("autocmd FileType TodoList nnoremap <buffer> q :wqa<CR>")
       require("todolist").setup()
     end,
   },
