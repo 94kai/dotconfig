@@ -315,14 +315,9 @@ return {
     end,
   },
   {
-    "94kai/vim-todo-lists",
+    "94kai/todolist.nvim",
     config = function()
-      -- vim.cmd("let g:VimTodoListsDatesEnabled = 1")
-      vim.cmd("let g:VimTodoListsDateCompleteEnabled = 1")
-      -- vim.cmd("let g:VimTodoListsDatesFormat = '%Y-%m-%d %H:%M:%S %A'")
-      vim.cmd("let g:VimTodoListsUndoneItem = '󰄱'")
-      vim.cmd("let g:VimTodoListsDoneItem = '󰄲'")
-      vim.cmd("autocmd FileType todo nnoremap <buffer> q :wqa<CR>")
+      require("todolist").setup()
     end,
   },
   {
