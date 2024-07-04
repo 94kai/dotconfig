@@ -5,18 +5,26 @@ local status, ignorePlugin = pcall(require, "ignore-config")
 if not status then
   ignorePlugin = {}
 end
+
+local nvimTreeConfig = {
+  "kyazdani42/nvim-tree.lua",
+  config = function()
+    require("plugins.nvim-tree")
+  end,
+}
+
+if isOpenDir() ~= 1 then
+  keymap("n", "<C-f>", "<CMD>NvimTreeToggle<CR>")
+  nvimTreeConfig.cmd = { "NvimTreeToggle", "NvimTreeFocus" }
+end
+
 return {
   ignorePlugin,
+  nvimTreeConfig,
   {
     "rcarriga/nvim-notify",
     config = function()
       require("plugins.nvim-notify")
-    end,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    config = function()
-      require("plugins.nvim-tree")
     end,
   },
   {
@@ -176,6 +184,7 @@ return {
   {
     -- 补全插件 会导致批量操作（normal命令）巨慢无比
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",

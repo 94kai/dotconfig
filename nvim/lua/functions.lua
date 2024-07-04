@@ -26,7 +26,6 @@ function _G.keymap(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, keyOpts)
 end
 
-
 function _G.delkeymap(mode, lhs)
   vim.keymap.del(mode, lhs)
 end
@@ -36,3 +35,10 @@ function _G.isWSL()
   return not not string.find(output[1] or "", "WSL")
 end
 
+function _G.isOpenDir()
+  local argv = vim.fn.argv()
+  local argSize = table.getn(argv)
+  if argSize == 1 then
+    return vim.fn.isdirectory(argv[1])
+  end
+end
