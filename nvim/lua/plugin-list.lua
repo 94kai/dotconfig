@@ -126,14 +126,14 @@ return {
   --     require("plugins.theme")
   --   end,
   -- },
-  {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    priority = 1000,
-    config = function()
-      require("plugins.theme")
-    end,
-  },
+  -- {
+  --   "bluz71/vim-moonfly-colors",
+  --   name = "moonfly",
+  --   priority = 1000,
+  --   config = function()
+  --     require("plugins.theme")
+  --   end,
+  -- },
   -- 主题---------------
   {
     "lewis6991/gitsigns.nvim",
@@ -328,6 +328,16 @@ return {
     config = function()
       vim.cmd("autocmd FileType TodoList nnoremap <buffer> q :wqa<CR>")
       require("todolist").setup()
+    end,
+  },
+  {
+    "xiantang/darcula-dark.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugins.theme")
     end,
   },
   {
