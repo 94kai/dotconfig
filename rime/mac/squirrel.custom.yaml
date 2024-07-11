@@ -1,5 +1,10 @@
 patch:
   app_options:
+    # 查询命令:sascript -e 'id of app "JetBrains Client"'
+    com.jetbrains.cwm.guest:
+      ascii_mode: true
+      no_inline: true
+      vim_mode: true
     com.googlecode.iterm2:
       ascii_mode: true
       no_inline: true

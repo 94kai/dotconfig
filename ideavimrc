@@ -58,6 +58,8 @@ map <C-f> :NERDTreeFind<CR>
 
 map <leader>d <Action>(Debug)
 map <leader>r <Action>(Run)
+map <C-i> :action Forward<CR>
+map <C-o> :action Back<CR>
 "map <leader>c <Action>(Stop)
 "map <leader>z <Action>(ToggleDistractionFreeMode)
 
