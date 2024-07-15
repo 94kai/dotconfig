@@ -19,7 +19,7 @@ if nvimTree then
       dotfiles = false,
     },
     view = {
-      width = 34,
+      width = 60,
       -- or 'right'
       side = "left",
       number = false,

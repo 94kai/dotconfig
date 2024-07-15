@@ -11,11 +11,11 @@ _G.format_if_small_enough = function()
     vim.cmd("FormatWrite") -- 执行格式化
   end
 end
-augroup("__formatter__", { clear = true })
-autocmd("BufWritePost", {
-  group = "__formatter__",
-  command = "lua _G.format_if_small_enough()",
-})
+-- augroup("__formatter__", { clear = true })
+-- autocmd("BufWritePost", {
+--   group = "__formatter__",
+--   command = "lua _G.format_if_small_enough()",
+-- })
 
 vim.cmd("command! F :Format")
 
@@ -43,6 +43,10 @@ require("formatter").setup({
     javascript = {
       -- 需要先安装js-beautify：pip install jsbeautifier
       require("formatter.filetypes.javascript").jsbeautify,
+    },
+    cpp = {
+      -- 需要先安装js-beautify：pip install jsbeautifier
+      require("formatter.filetypes.cpp").clangformat,
     },
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
