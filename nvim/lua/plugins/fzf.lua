@@ -1,3 +1,4 @@
+-- rg搜索：xxx --正选 --!反选
 -- vim.keymap.set('n', '<A-r>', ":Rg<CR>", {})
 -- vim.cmd("let g:fzf_history_dir = '~/.local/share/fzf-history'")
 --
