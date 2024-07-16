@@ -1,3 +1,5 @@
 nvim/lazy-lock.json
 nvim/.netrwhist
 nvim/lua/ignore-config.lua
+rime/build
+rime/luna_pinyin.userdb

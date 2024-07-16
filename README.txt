@@ -11,16 +11,14 @@ brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
 # Perferences->Profiles->Text->Font
 
-# 安装im-select
-brew tap daipeihust/tap
-brew install im-select
 
 # LSP/Format/DAP通过Mason按需安装
 
 
 # ================zsh相关
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://install.ohmyz.sh)"
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ln -s ~/project/dotconfig/zshrc ~/.zshrc
 
