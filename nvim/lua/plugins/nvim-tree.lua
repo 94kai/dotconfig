@@ -1,4 +1,10 @@
 -- 目录
+local function get_tree_width()
+  local columns = vim.o.columns
+  local width_percent = 0.2 -- 设置为窗口宽度的20%
+  local width = math.floor(columns * width_percent)
+  return width
+end
 local nvimTree = pRequire("nvim-tree")
 if nvimTree then
   keymap("n", "<C-f>", "<CMD>NvimTreeToggle<CR>")
@@ -19,7 +25,7 @@ if nvimTree then
       dotfiles = false,
     },
     view = {
-      width = 60,
+      width = get_tree_width(), -- 初始化宽度
       -- or 'right'
       side = "left",
       number = false,
