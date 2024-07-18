@@ -29,6 +29,7 @@ ln -s ~/project/dotconfig/tmux.conf ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # 重启tmux
 # Ctrl-s shift-I 安装tmux插件
+> linux上显示有问题，tmux可以切换到linux分支
 
 
 # ================ideavim相关
