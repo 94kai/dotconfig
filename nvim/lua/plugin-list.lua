@@ -70,12 +70,12 @@ return {
       require("plugins.replace-with-register")
     end,
   },
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("plugins.neoscroll")
-    end,
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   config = function()
+  --     require("plugins.neoscroll")
+  --   end,
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
