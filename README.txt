@@ -33,3 +33,18 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # ================ideavim相关
 ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
+
+
+# ================按键映射
+- caps单独按esc，组合按Ctrl
+	- linux
+		- sudo apt install interception-tools interception-caps2esc
+		- 创建/etc/interception/udevmon.d/udevmon.yaml
+			- 添加如下配置
+			```
+			- JOB: interception -g $DEVNODE | caps2esc | uinput -d $DEVNODE
+			  DEVICE:
+				EVENTS:
+				  EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+			```
+		- sudo systemctl restart udevmon
