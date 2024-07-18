@@ -1,0 +1,3 @@
+patch:
+  "switches/@0/reset": 1  # 初始的 ascii mode 设置为「西文」
+
