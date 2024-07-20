@@ -49,3 +49,6 @@ ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
 				  EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 			```
 		- sudo systemctl restart udevmon
+
+# ================三指拖动
+https://github.com/ferstar/gestures/releases
