@@ -53,8 +53,10 @@ ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
 # ================三指拖动
 https://github.com/ferstar/gestures/releases
 ```
+	; 登陆前启动肯定会失败，所以需要设置自动重启
 	[Unit]
 	Description=三指拖拽，注意需要配置一些环境变量，否则service中跑这个程序会有各种bug
+	StartLimitIntervalSec=0
 
 	[Service]
 
@@ -63,7 +65,8 @@ https://github.com/ferstar/gestures/releases
 	Environment=HOME=/home/xuekai
 	Type=simple
 	ExecStart=/home/xuekai/.local/bin/gestures-amd64-linux
-	Restart=never
+	Restart=always
+	RestartSec=1
 
 	[Install]
 	WantedBy=default.target
