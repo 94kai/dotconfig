@@ -37,6 +37,9 @@ if nvimTree then
         resize_window = true,
         quit_on_open = false,
       },
+      change_dir = {
+        enable = false,
+      },
     },
     renderer = {
       root_folder_label = ":~:s?$?/..?",
