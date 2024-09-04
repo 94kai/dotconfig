@@ -13,7 +13,7 @@ let mapleader=" "
 set nocompatible				" 关闭对vi的兼容
 set encoding=utf-8				" 编码设置
 set showmode					" 底部显示模式
-set relativenumber				" 设置绝对行号
+"set relativenumber				" 设置绝对行号
 set number				        " 设置行号
 set hlsearch					" 高亮搜索
 set scrolloff=5

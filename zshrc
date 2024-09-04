@@ -126,6 +126,8 @@ alias vimdiff="v -d"
 alias vi="nvim"
 alias ov="/usr/bin/vim"
 alias todo="v ~/project/todolist/work.todo.md"
+alias fzfv="v \`fzf\`"
+alias fzfp="fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200\'"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
