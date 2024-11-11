@@ -1,7 +1,7 @@
 # mac鼠须管
 patch:
   app_options:
-    # 查询命令:sascript -e 'id of app "JetBrains Client"'
+    # 查询命令:osascript -e 'id of app "JetBrains Client"'
     com.jetbrains.cwm.guest:
       ascii_mode: true
       no_inline: true
@@ -26,6 +26,9 @@ patch:
       ascii_mode: true
       vim_mode: true
     com.jetbrains.WebStorm:
+      ascii_mode: true
+      vim_mode: true
+    com.jetbrains.CLion:
       ascii_mode: true
       vim_mode: true
   style:
