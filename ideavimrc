@@ -13,7 +13,7 @@ let mapleader=" "
 set nocompatible				" 关闭对vi的兼容
 set encoding=utf-8				" 编码设置
 set showmode					" 底部显示模式
-"set relativenumber				" 设置绝对行号
+set relativenumber				" 设置绝对行号
 set number				        " 设置行号
 set hlsearch					" 高亮搜索
 set scrolloff=5
@@ -27,7 +27,7 @@ set surround
 
 "set keep-english-in-normal-and-restore-in-insert		" 自动切输入法插件
 set commentary											" 用gc注释代码
-set easymotion											" 快速跳转到指定字符
+"set easymotion											" 快速跳转到指定字符
 set ReplaceWithRegister									" 用gr来粘贴字符串
 set NERDTree											" 目录插件
 set quickscope											" f/t跳转时高亮
@@ -36,6 +36,20 @@ let g:qs_lazy_highlight = 1								" 没按f/t时不高亮
 
 " normal下通过esc关闭高亮
 nnoremap <silent> <Esc> :nohlsearch<cr>
+
+
+
+" 关于AceJump
+" Press `f` to activate AceJump
+map s <Action>(AceAction)
+" Press `F` to activate Target Mode
+map S <Action>(AceTargetAction)
+" Press `g` to activate Line Mode
+"map g <Action>(AceLineAction)
+" Press `S` in normal mode to activate AceJump mode before the caret
+"nmap S <Action>(AceBackwardAction)
+" Press `s` in normal mode to activate AceJump mode after the caret
+"nmap s <Action>(AceForwardAction)
 
 -- 窗口切换快捷键
 nnoremap <silent> <C-h> <C-w><Left>
@@ -51,7 +65,6 @@ let g:highlightedyank_highlight_duration = "200"		" 设置高亮时间
 set ideajoin											" 智能连接。如字符串、表达式从两行连接成1行时，智能重构
 set ideastatusicon=gray                                 " ideavim图标设为灰色
 set idearefactormode=keep                               " 所有mode下都可以使用idea的重构代码能力
-map s <Plug>(easymotion-s)
 
 map <C-t> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
