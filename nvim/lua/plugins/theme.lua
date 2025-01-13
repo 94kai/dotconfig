@@ -17,4 +17,14 @@ vim.cmd("highlight CursorLine guibg=#41435e") -- 当前行高亮的颜色
 vim.cmd("highlight CursorColumn guibg=#41435e") -- 当前列高亮的颜色
 vim.cmd("highlight CurSearch guifg=white guibg=blue") -- 当前列高亮的颜色
 vim.cmd("highlight IncSearch guifg=white guibg=blue") -- 当前列高亮的颜色
+
+
+-- 设置状态栏背景色
+vim.cmd("highlight lualine_b_normal guibg=#41435e")
+vim.cmd("highlight lualine_c_normal guibg=#41435e")
+vim.cmd("highlight lualine_x_normal guibg=#41435e")
+vim.cmd("highlight lualine_y_normal guibg=#41435e")
+vim.cmd("highlight lualine_z_normal guibg=#41435e")
+vim.cmd("highlight lualine_c_inactive guibg=#81ecec guifg=black")
+
 -- end
