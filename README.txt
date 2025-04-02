@@ -15,6 +15,7 @@ brew install font-hack-nerd-font
 # LSP/Format/DAP通过Mason按需安装
 # ================格式化相关
 # 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后`npm install -g prettier` 安装全局prettier。使用FJson命令格式化json
+# 格式化python,需要先安装autopep8。linux优先用'apt install python3-autopep8',mac可以用pip3 install autopep8。使用FPython命令格式化python
 
 
 

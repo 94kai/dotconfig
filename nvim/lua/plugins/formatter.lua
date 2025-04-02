@@ -22,6 +22,17 @@ vim.cmd("command! F :Format")
 
 
 
+-- 格式化python,需要先安装autopep8 linux优先用apt install python3-autopep8,mac可以用pip3 install autopep8
+local function format_python()
+  local saved_view = vim.fn.winsaveview()
+  vim.cmd("%!autopep8 -")
+	vim.fn.winrestview(saved_view)
+end
+vim.api.nvim_create_user_command("FPython", format_python, {})
+
+
+
+
 -- 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后npm install -g prettier 安装全局prettier
 local function format_json()
   local saved_view = vim.fn.winsaveview()
@@ -43,10 +54,6 @@ require("formatter").setup({
     lua = {
       -- 需要先安装stylua： brew install stylua
       require("formatter.filetypes.lua").stylua,
-    },
-    python = {
-      -- 需要先安装black：pip3 install git+https://github.com/psf/black
-      require("formatter.filetypes.python").black,
     },
     javascript = {
       -- 需要先安装js-beautify：pip install jsbeautifier
