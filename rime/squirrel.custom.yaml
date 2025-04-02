@@ -13,6 +13,12 @@ patch:
     com.microsoft.VSCode:
       ascii_mode: true
       vim_mode: true
+    net.cozic.joplin-desktop:
+      ascii_mode: true
+      vim_mode: true
+    com.todesktop.230313mzl4w4u92:
+      ascii_mode: true
+      vim_mode: true
     com.google.android.studio:
       ascii_mode: true
       vim_mode: true

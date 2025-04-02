@@ -19,6 +19,17 @@ end
 
 vim.cmd("command! F :Format")
 
+
+
+
+-- 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后npm install -g prettier 安装全局prettier
+local function format_json()
+  local saved_view = vim.fn.winsaveview()
+  vim.cmd(":%!prettier --parser jsonc")
+	vim.fn.winrestview(saved_view)
+end
+vim.api.nvim_create_user_command("FJson", format_json, {})
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
   -- Enable or disable logging
@@ -36,9 +47,6 @@ require("formatter").setup({
     python = {
       -- 需要先安装black：pip3 install git+https://github.com/psf/black
       require("formatter.filetypes.python").black,
-    },
-    json = {
-      require("formatter.filetypes.json").prettier,
     },
     javascript = {
       -- 需要先安装js-beautify：pip install jsbeautifier
