@@ -18,9 +18,18 @@ if isOpenDir() ~= 1 then
   nvimTreeConfig.cmd = { "NvimTreeToggle", "NvimTreeFocus" }
 end
 
+local commonConfig = {
+	{
+		"tenfyzhong/axring.vim",
+		config = function()
+			require("plugins.axring")
+		end,
+	},
+}
 if vim.g.vscode then
     -- VSCode 扩展环境
 	return {
+		commonConfig,
 		{
 			"unblevable/quick-scope",
 			event = "VeryLazy",
@@ -89,6 +98,7 @@ else
     -- 普通 Neovim 环境
 	return {
 		ignorePlugin,
+		commonConfig,
 		nvimTreeConfig,
 		{
 			"rcarriga/nvim-notify",

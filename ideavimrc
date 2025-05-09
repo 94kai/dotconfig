@@ -43,7 +43,7 @@ nnoremap <silent> <Esc> :nohlsearch<cr>
 " Press `f` to activate AceJump
 map s <Action>(AceAction)
 " Press `F` to activate Target Mode
-map S <Action>(AceTargetAction)
+"map S <Action>(AceTargetAction)
 " Press `g` to activate Line Mode
 "map g <Action>(AceLineAction)
 " Press `S` in normal mode to activate AceJump mode before the caret
@@ -61,6 +61,8 @@ nnoremap <silent> L :tabn<CR>
 
 Plug 'machakann/vim-highlightedyank'					" 复制时高亮
 let g:highlightedyank_highlight_duration = "200"		" 设置高亮时间
+
+
 
 set ideajoin											" 智能连接。如字符串、表达式从两行连接成1行时，智能重构
 set ideastatusicon=gray                                 " ideavim图标设为灰色
