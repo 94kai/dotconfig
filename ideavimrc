@@ -92,3 +92,12 @@ map <S-Space> <Action>(GotoNextError)
 " 简单的方案解决*/#查询选择区域，对于特殊字符可能会有问题，如选中.会查询所有
 vmap * y/<C-R>"<CR>
 vmap # y?<C-R>"<CR>
+
+
+
+
+
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-k> :m '<-2<CR>gv=gv

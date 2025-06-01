@@ -57,3 +57,7 @@ keymap("n", "<leader>l", ":cclose<CR>")
 
 -- keymap("n", "<C-n>", ":cnext<CR>")
 -- keymap("n", "<C-m>", ":cprevious<CR>")
+
+-- normal模式下和tmux冲突,所以暂不支持normal模式
+keymap("v", "<C-j>", ":m '>+1<CR>gv=gv")
+keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")

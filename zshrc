@@ -120,6 +120,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias less="less -N"
 alias v="nvim"
 alias vim="nvim"
 alias vimdiff="v -d"
