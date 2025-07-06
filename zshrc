@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 BASH_PROFILE=~/.bash_profile
 if [ -f "$BASH_PROFILE" ]; then
 	source $BASH_PROFILE
@@ -19,7 +26,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # 可以在.bash_profile配置下面主题
 # export CUSTOM_ZSH_THEME=amuse
 if [ -z "${CUSTOM_ZSH_THEME}" ]; then
-	ZSH_THEME="af-magic"
+	ZSH_THEME="powerlevel10k/powerlevel10k"
 else
 	ZSH_THEME="${CUSTOM_ZSH_THEME}"
 fi
@@ -144,3 +151,6 @@ else
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
