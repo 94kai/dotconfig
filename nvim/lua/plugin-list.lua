@@ -40,7 +40,7 @@ local commonConfig = {
 			-- stylua: ignore
 			keys = {
 				{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
-				{ "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+				{ "<leader>S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
 				-- 	{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
 				-- 	{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
 				-- 	{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
@@ -147,27 +147,12 @@ else
     -- 		require("plugins.easymotion")
     -- 	end,
     -- },
-    {
-      "vim-scripts/ReplaceWithRegister",
-      event = "VeryLazy",
-      config = function()
-        require("plugins.replace-with-register")
-      end,
-    },
     -- {
     --   "karb94/neoscroll.nvim",
     --   config = function()
     --     require("plugins.neoscroll")
     --   end,
     -- },
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function()
-        vim.fn["mkdp#util#install"]()
-      end,
-    },
     {
       "HiPhish/rainbow-delimiters.nvim",
       event = "VeryLazy",
@@ -233,6 +218,7 @@ else
       -- 中文文档插件（需要克隆文档参考https://github.com/yianwillis/vimcdocF
     },
     {
+      -- Neovim 的便携式软件包管理器，可在 Neovim 运行的任何地方运行。 轻松安装和管理 LSP 服务器、DAP 服务器、linters 和格式化程序。
       "williamboman/mason.nvim",
       event = "VeryLazy",
       opts = {
@@ -265,14 +251,14 @@ else
         require("plugins.nvim-cmp")
       end,
     },
-    {
-      -- 代码高亮
-      "nvim-treesitter/nvim-treesitter",
-      event = "VeryLazy",
-      config = function()
-        require("plugins.nvim-treesitter")
-      end,
-    },
+    -- {
+    --   -- 代码高亮
+    --   "nvim-treesitter/nvim-treesitter",
+    --   event = "VeryLazy",
+    --   config = function()
+    --     require("plugins.nvim-treesitter")
+    --   end,
+    -- },
     {
       -- 支持通过c-hjkl切换vim的window
       "christoomey/vim-tmux-navigator",
@@ -323,14 +309,6 @@ else
       event = "VeryLazy",
       config = function()
         require("plugins.vim-translator")
-      end,
-    },
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function()
-        vim.fn["mkdp#util#install"]()
       end,
     },
     -- {
@@ -387,34 +365,6 @@ else
       config = function()
         require("plugins.theme")
       end,
-    },
-    {
-      "tris203/precognition.nvim",
-      event = "VeryLazy",
-      --event = "VeryLazy",
-      opts = {
-        startVisible = false,
-        -- showBlankVirtLine = true,
-        -- highlightColor = { link = "Comment" },
-        -- hints = {
-        --      Caret = { text = "^", prio = 2 },
-        --      Dollar = { text = "$", prio = 1 },
-        --      MatchingPair = { text = "%", prio = 5 },
-        --      Zero = { text = "0", prio = 1 },
-        --      w = { text = "w", prio = 10 },
-        --      b = { text = "b", prio = 9 },
-        --      e = { text = "e", prio = 8 },
-        --      W = { text = "W", prio = 7 },
-        --      B = { text = "B", prio = 6 },
-        --      E = { text = "E", prio = 5 },
-        -- },
-        -- gutterHints = {
-        --     G = { text = "G", prio = 10 },
-        --     gg = { text = "gg", prio = 9 },
-        --     PrevParagraph = { text = "{", prio = 8 },
-        --     NextParagraph = { text = "}", prio = 8 },
-        -- },
-      },
     },
   }
 end

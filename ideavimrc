@@ -83,7 +83,7 @@ map <C-o> :action Back<CR>
 "map <leader>c <Action>(Stop)
 "map <leader>z <Action>(ToggleDistractionFreeMode)
 
-map <leader>s <Action>(SelectInProjectView)
+"map <leader>s <Action>(SelectInProjectView)
 map <leader>a <Action>(Annotate)
 "map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
 map <S-Space> <Action>(GotoNextError)

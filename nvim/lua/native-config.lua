@@ -51,9 +51,6 @@ vim.opt.fillchars = { eob = " " }
 -- keymap("n", "<leader>l", ":bn<CR>")
 keymap("n", "H", ":bp<CR>")
 keymap("n", "L", ":bn<CR>")
-keymap("n", "<leader>k", ":cprevious<CR>")
-keymap("n", "<leader>j", ":cnext<CR>")
-keymap("n", "<leader>l", ":cclose<CR>")
 
 -- keymap("n", "<C-n>", ":cnext<CR>")
 -- keymap("n", "<C-m>", ":cprevious<CR>")
