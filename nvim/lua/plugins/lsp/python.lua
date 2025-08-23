@@ -1,5 +1,5 @@
--- vim.api.nvim_exec([[ autocmd FileType python nnoremap <buffer> <F5> :!python %<CR>]], false)
-
+# python调试方式
+-- python -m pudb xxx.py
 vim.lsp.config('pylsp', {
     settings = {
       pylsp = {
