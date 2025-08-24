@@ -1,5 +1,6 @@
 -- 所有插件都放在这里
 require("plugins.customs.bufonly")
+require("plugins.customs.terminal")
 local status, ignorePlugin = pcall(require, "ignore-config")
 
 if not status then
