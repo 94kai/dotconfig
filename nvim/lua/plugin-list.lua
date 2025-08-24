@@ -251,30 +251,30 @@ else
         require("plugins.nvim-cmp")
       end,
     },
-    -- {
-    --   -- 代码高亮
-    --   "nvim-treesitter/nvim-treesitter",
-    --   event = "VeryLazy",
-    --   config = function()
-    --     require("plugins.nvim-treesitter")
-    --   end,
-    -- },
     {
-      -- 支持通过c-hjkl切换vim的window
-      "christoomey/vim-tmux-navigator",
-      cmd = {
-        "TmuxNavigateLeft",
-        "TmuxNavigateDown",
-        "TmuxNavigateUp",
-        "TmuxNavigateRight",
-      },
-      keys = {
-        { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-        { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-        { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-        { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      },
+      -- 代码高亮
+      "nvim-treesitter/nvim-treesitter",
+      event = "VeryLazy",
+      config = function()
+        require("plugins.nvim-treesitter")
+      end,
     },
+    -- {
+    --   -- 支持通过c-hjkl切换vim的window,tmux用prefix+hjkl. vim用自己的c-w 。不用插件了
+    --   "christoomey/vim-tmux-navigator",
+    --   cmd = {
+    --     "TmuxNavigateLeft",
+    --     "TmuxNavigateDown",
+    --     "TmuxNavigateUp",
+    --     "TmuxNavigateRight",
+    --   },
+    --   keys = {
+    --     { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+    --     { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+    --     { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+    --     { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+    --   },
+    -- },
     {
       "ibhagwan/fzf-lua",
       -- for icon support
@@ -282,10 +282,10 @@ else
         "nvim-tree/nvim-web-devicons",
       },
       keys = {
-        { "<leader>ff", mode = { "n" }, ":FzfLua files<CR>" },
-        { "<leader>fg", mode = { "n" }, ":FzfLua live_grep_glob<CR>" },
-        { "<leader>fv", mode = { "n" }, ":FzfLua git_bcommits<CR>" },
-        { "<A-f>", mode = { "n" }, ":FzfLua<CR>" },
+        -- { "<leader>ff", mode = { "n" }, ":FzfLua files<CR>" },
+        -- { "<leader>fg", mode = { "n" }, ":FzfLua live_grep_glob<CR>" },
+        -- { "<leader>fv", mode = { "n" }, ":FzfLua git_bcommits<CR>" },
+        { "<leader>f", mode = { "n" }, ":FzfLua<CR>" },
       },
       config = function()
         -- calling `setup` is optional for customization
@@ -356,15 +356,9 @@ else
         require("todolist").setup()
       end,
     },
-    {
-      "xiantang/darcula-dark.nvim",
-      event = "VeryLazy",
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-      },
-      config = function()
-        require("plugins.theme")
-      end,
-    },
+		-- 非焦点窗口变灰色
+		{
+			'blueyed/vim-diminactive'
+		}
   }
 end

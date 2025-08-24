@@ -56,5 +56,11 @@ keymap("n", "L", ":bn<CR>")
 -- keymap("n", "<C-m>", ":cprevious<CR>")
 
 -- normal模式下和tmux冲突,所以暂不支持normal模式
+-- 快速移动一行
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv")
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")
+keymap("n", "<C-j>", ":m .+1<CR>==")
+keymap("n", "<C-k>", ":m .-2<CR>==")
+
+-- 终端中C-w直接回到normal模式
+keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
