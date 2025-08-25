@@ -260,22 +260,22 @@ else
         require("plugins.nvim-treesitter")
       end,
     },
-    -- {
-    --   -- 支持通过c-hjkl切换vim的window,tmux用prefix+hjkl. vim用自己的c-w 。不用插件了
-    --   "christoomey/vim-tmux-navigator",
-    --   cmd = {
-    --     "TmuxNavigateLeft",
-    --     "TmuxNavigateDown",
-    --     "TmuxNavigateUp",
-    --     "TmuxNavigateRight",
-    --   },
-    --   keys = {
-    --     { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-    --     { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-    --     { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-    --     { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-    --   },
-    -- },
+    {
+      -- 支持通过c-hjkl切换vim的window,tmux用prefix+hjkl. vim用自己的c-w 。不用插件了
+      "christoomey/vim-tmux-navigator",
+      cmd = {
+        "TmuxNavigateLeft",
+        "TmuxNavigateDown",
+        "TmuxNavigateUp",
+        "TmuxNavigateRight",
+      },
+      keys = {
+        { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+        { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+        { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+        { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      },
+    },
     {
       "ibhagwan/fzf-lua",
       -- for icon support

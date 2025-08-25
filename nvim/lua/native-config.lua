@@ -62,23 +62,21 @@ keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")
 keymap("n", "<C-j>", ":m .+1<CR>==")
 keymap("n", "<C-k>", ":m .-2<CR>==")
 
-
--- 终端中C-w直接回到normal模式
-keymap("t", "<C-w>", "<C-\\><C-n><C-w>")
-
+-- 终端中ESC直接回到normal模式
+keymap("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
 
 -- tab相关
-keymap("n", "<Tab>c", ":tab split<CR>")-- 新建标签
-keymap("n", "<Tab>x", ":tabclose<CR>")-- 关闭标签
-keymap("n", "<Tab>n", ":tabprev<CR>")-- 上一个标签
-keymap("n", "<Tab>p", ":tabnext<CR>")-- 下一个标签
-keymap("n", "<Tab>1", ":tabn1<CR>")-- 下一个标签
-keymap("n", "<Tab>2", ":tabn2<CR>")-- 下一个标签
-keymap("n", "<Tab>3", ":tabn3<CR>")-- 下一个标签
-keymap("n", "<Tab>4", ":tabn4<CR>")-- 下一个标签
-keymap("n", "<Tab>5", ":tabn5<CR>")-- 下一个标签
-keymap("n", "<Tab>6", ":tabn6<CR>")-- 下一个标签
-keymap("n", "<Tab>7", ":tabn7<CR>")-- 下一个标签
-keymap("n", "<Tab>8", ":tabn8<CR>")-- 下一个标签
-keymap("n", "<Tab>9", ":tabn9<CR>")-- 下一个标签
-keymap("n", "<Tab>0", ":tabn0<CR>")-- 下一个标签
+keymap("n", "<Tab>c", ":tab split<CR>") -- 新建标签
+keymap("n", "<Tab>x", ":tabclose<CR>") -- 关闭标签
+keymap("n", "<Tab>n", ":tabprev<CR>") -- 上一个标签
+keymap("n", "<Tab>p", ":tabnext<CR>") -- 下一个标签
+keymap("n", "<Tab>1", ":tabn1<CR>")
+keymap("n", "<Tab>2", ":tabn2<CR>")
+keymap("n", "<Tab>3", ":tabn3<CR>")
+keymap("n", "<Tab>4", ":tabn4<CR>")
+keymap("n", "<Tab>5", ":tabn5<CR>")
+keymap("n", "<Tab>6", ":tabn6<CR>")
+keymap("n", "<Tab>7", ":tabn7<CR>")
+keymap("n", "<Tab>8", ":tabn8<CR>")
+keymap("n", "<Tab>9", ":tabn9<CR>")
+keymap("n", "<Tab>0", ":tabn0<CR>")
