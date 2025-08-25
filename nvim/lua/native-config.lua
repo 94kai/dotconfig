@@ -59,8 +59,9 @@ keymap("n", "L", ":bn<CR>")
 -- 快速移动一行
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv")
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")
-keymap("n", "<C-j>", ":m .+1<CR>==")
-keymap("n", "<C-k>", ":m .-2<CR>==")
+–– 与窗口导航冲突，注释掉
+-- keymap("n", "<C-j>", ":m .+1<CR>==")
+-- keymap("n", "<C-k>", ":m .-2<CR>==")
 
 -- 终端中ESC直接回到normal模式
 keymap("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
