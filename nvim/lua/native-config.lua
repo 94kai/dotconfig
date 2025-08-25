@@ -69,22 +69,19 @@ keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")
 keymap("t", "<C-[>", "<C-\\><C-n>", { noremap = true })
 
 -- tab相关
-keymap("n", "<Tab>c", ":tab split<CR>") -- 新建标签
-keymap("n", "<Tab>x", ":tabclose<CR>") -- 关闭标签
-keymap("n", "<Tab>n", ":tabprev<CR>") -- 上一个标签
-keymap("n", "<Tab>p", ":tabnext<CR>") -- 下一个标签
-keymap("n", "<Tab>1", ":tabn1<CR>")
-keymap("n", "<Tab>2", ":tabn2<CR>")
-keymap("n", "<Tab>3", ":tabn3<CR>")
-keymap("n", "<Tab>4", ":tabn4<CR>")
-keymap("n", "<Tab>5", ":tabn5<CR>")
-keymap("n", "<Tab>6", ":tabn6<CR>")
-keymap("n", "<Tab>7", ":tabn7<CR>")
-keymap("n", "<Tab>8", ":tabn8<CR>")
-keymap("n", "<Tab>9", ":tabn9<CR>")
-keymap("n", "<Tab>0", ":tabn0<CR>")
+keymap("n", "<leader>tt", ":tabnew<CR>") -- 新建标签
+keymap("n", "<leader>tq", ":tabclose<CR>") -- 关闭标签
+keymap("n", "<Tab>", ":tabnext<CR>") -- 下一个标签
+keymap("n", "<s-Tab>", ":tabprev<CR>") -- 下一个标签
 
+-- buf相关
+keymap("n", "<leader>bq", ":bd<CR>") -- 关闭当前buf
+keymap("n", "<leader>bQ", ":bd!<CR>") -- 强制关闭当前buf
 
+-- window相关
+keymap("n", "<leader>q", ":q<CR>") -- 关闭当前window
+keymap("n", "<leader>Q", ":q!<CR>") -- 强制关闭当前window
+keymap("n", "<leader>wq", ":wq<CR>") -- 写入并关闭当前window
 
 vim.api.nvim_create_user_command("Sort", "%!sort", {})
 vim.api.nvim_create_user_command("Uniq", "%!uniq", {})
