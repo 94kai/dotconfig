@@ -85,7 +85,7 @@
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     toolbox                 # toolbox name (https://github.com/containers/toolbox)
-    context                 # user@hostname
+    # context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     yazi                    # yazi shell (https://github.com/sxyazi/yazi)
@@ -97,16 +97,16 @@
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     chezmoi_shell           # chezmoi shell (https://www.chezmoi.io/)
     # vpn_ip                # virtual private network indicator
-    # load                  # CPU load
-    # disk_usage            # disk usage
-    # ram                   # free RAM
-    # swap                  # used swap
+    time                    # current time
+    load                  # CPU load
+    disk_usage            # disk usage
+    ram                   # free RAM
+    swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    time                    # current time
     # =========================[ Line #2 ]=========================
     newline
     # ip                    # ip address and bandwidth usage for a specified network interface
@@ -201,9 +201,9 @@
   # Default prompt symbol.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
   # Prompt symbol in command vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='▪'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION=''
   # Prompt symbol in visual vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='V'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='█'
   # Prompt symbol in overwrite vi mode.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIOWR_CONTENT_EXPANSION='▶'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OVERWRITE_STATE=true
@@ -796,19 +796,19 @@
   # If set to true, hide disk usage when below $POWERLEVEL9K_DISK_USAGE_WARNING_LEVEL percent.
   typeset -g POWERLEVEL9K_DISK_USAGE_ONLY_WARNING=false
   # Custom icon.
-  # typeset -g POWERLEVEL9K_DISK_USAGE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_DISK_USAGE_VISUAL_IDENTIFIER_EXPANSION='DISK'
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
   typeset -g POWERLEVEL9K_RAM_FOREGROUND=66
   # Custom icon.
-  # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='RAM'
 
   #####################################[ swap: used swap ]######################################
   # Swap color.
   typeset -g POWERLEVEL9K_SWAP_FOREGROUND=96
   # Custom icon.
-  # typeset -g POWERLEVEL9K_SWAP_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_SWAP_VISUAL_IDENTIFIER_EXPANSION='SWAP'
 
   ######################################[ load: CPU load ]######################################
   # Show average CPU load over this many last minutes. Valid values are 1, 5 and 15.
@@ -820,7 +820,7 @@
   # Load color when load is over 70%.
   typeset -g POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND=166
   # Custom icon.
-  # typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='CPU'
 
   ################[ todo: todo items (https://github.com/todotxt/todo.txt-cli) ]################
   # Todo color.
