@@ -5,6 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+setopt HIST_IGNORE_ALL_DUPS  # 忽略所有重复记录（包括连续和非连续）
+# setopt HIST_IGNORE_DUPS      # 仅忽略连续的重复记录
+setopt HIST_EXPIRE_DUPS_FIRST  # 当历史文件满时，优先删除重复记录
+# setopt HIST_FIND_NO_DUPS     # 在历史搜索中不显示重复项
+
 BASH_PROFILE=~/.bash_profile
 if [ -f "$BASH_PROFILE" ]; then
 	source $BASH_PROFILE
@@ -16,6 +21,17 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+#
+# # 示例：在大型仓库路径下禁用
+# function git_prompt_info() {
+#   if [[ "$PWD" == *"1Douyin"* ]]; then
+#     echo ""
+#   else
+#     # 原始 git_prompt_info 逻辑或默认输出
+#     echo "$(git branch --show-current 2>/dev/null)"
+#   fi
+# }
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -92,6 +108,9 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# 使用nvim作为编辑工具
+export EDITOR='nvim'
+
 plugins=(
 	git
 	zsh-autosuggestions
@@ -109,12 +128,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -138,7 +151,7 @@ alias fzfv="v \`fzf\`"
 alias fzfp="fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200\'"
 alias fzfgit="git log --oneline $* | fzf -e --multi --preview=\"git show {+1}\""
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
@@ -151,6 +164,8 @@ else
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. "$HOME/.local/bin/env"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

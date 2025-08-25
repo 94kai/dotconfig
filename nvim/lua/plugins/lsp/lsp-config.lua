@@ -19,7 +19,6 @@ keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
 keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
 keymap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
 
-
 -- 控制引用列表的导航(如查找到多个引用)
 keymap("n", "<leader>k", ":cprevious<CR>")
 keymap("n", "<leader>j", ":cnext<CR>")

@@ -1,5 +1,7 @@
 local vim = vim
 
+-- 高亮的列数，避免卡顿
+vim.opt.synmaxcol = 100
 vim.g.mapleader = " "
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -59,7 +61,7 @@ keymap("n", "L", ":bn<CR>")
 -- 快速移动一行
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv")
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv")
-–– 与窗口导航冲突，注释掉
+-- 与窗口导航冲突，注释掉
 -- keymap("n", "<C-j>", ":m .+1<CR>==")
 -- keymap("n", "<C-k>", ":m .-2<CR>==")
 
@@ -81,3 +83,11 @@ keymap("n", "<Tab>7", ":tabn7<CR>")
 keymap("n", "<Tab>8", ":tabn8<CR>")
 keymap("n", "<Tab>9", ":tabn9<CR>")
 keymap("n", "<Tab>0", ":tabn0<CR>")
+
+
+
+vim.api.nvim_create_user_command("Sort", "%!sort", {})
+vim.api.nvim_create_user_command("Uniq", "%!uniq", {})
+vim.api.nvim_create_user_command("LineWrapping", "%s/\\n/\r/g", {})
+
+

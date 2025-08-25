@@ -2,6 +2,17 @@
 patch:
   app_options:
     # 查询命令:osascript -e 'id of app "JetBrains Client"'
+    dev.zed.Zed:
+      ascii_mode:true
+    vi_mode:true
+    cn.trae.app:
+      ascii_mode: true
+      no_inline: true
+      vim_mode: true
+    com.trae.app:
+      ascii_mode: true
+      no_inline: true
+      vim_mode: true
     com.jetbrains.cwm.guest:
       ascii_mode: true
       no_inline: true

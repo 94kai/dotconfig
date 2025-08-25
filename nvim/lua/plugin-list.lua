@@ -261,7 +261,7 @@ else
       end,
     },
     {
-      -- 支持通过c-hjkl切换vim的window,tmux用prefix+hjkl. vim用自己的c-w 。不用插件了
+      -- 支持通过c-hjkl切换vim/tmux的window
       "christoomey/vim-tmux-navigator",
       cmd = {
         "TmuxNavigateLeft",
@@ -335,14 +335,14 @@ else
     -- 		require("plugins.cscope_maps")
     -- 	end
     -- },
-    {
-      "skywind3000/vim-preview",
-      event = "VeryLazy",
-      config = function()
-        vim.cmd("autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>")
-        vim.cmd("autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>")
-      end,
-    },
+    -- {
+    --   "skywind3000/vim-preview",
+    --   event = "VeryLazy",
+    --   config = function()
+    --     vim.cmd("autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>")
+    --     vim.cmd("autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>")
+    --   end,
+    -- },
     {
       "mhartington/formatter.nvim",
       event = "VeryLazy",

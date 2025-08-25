@@ -34,12 +34,18 @@ vim.api.nvim_create_user_command("FPython", format_python, {})
 
 
 -- 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后npm install -g prettier 安装全局prettier
-local function format_json()
+local function format_jsonc()
   local saved_view = vim.fn.winsaveview()
   vim.cmd(":%!prettier --parser jsonc")
 	vim.fn.winrestview(saved_view)
 end
+local function format_json()
+  local saved_view = vim.fn.winsaveview()
+  vim.cmd(":%!prettier --parser json")
+	vim.fn.winrestview(saved_view)
+end
 vim.api.nvim_create_user_command("FJson", format_json, {})
+vim.api.nvim_create_user_command("FJsonc", format_jsonc, {})
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
