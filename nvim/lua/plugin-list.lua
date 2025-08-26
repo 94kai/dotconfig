@@ -285,8 +285,9 @@ else
       keys = {
         -- { "<leader>ff", mode = { "n" }, ":FzfLua files<CR>" },
         -- { "<leader>fg", mode = { "n" }, ":FzfLua live_grep_glob<CR>" },
-        -- { "<leader>fv", mode = { "n" }, ":FzfLua git_bcommits<CR>" },
         { "<leader>f", mode = { "n" }, ":FzfLua<CR>" },
+        { "<leader>o", mode = { "n" }, ":FzfLua files<CR>" },
+        { "<leader>g", mode = { "n" }, ":FzfLua live_grep<CR>" },
       },
       config = function()
         -- calling `setup` is optional for customization
