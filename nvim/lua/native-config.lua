@@ -77,11 +77,14 @@ keymap("n", "<s-Tab>", ":tabprev<CR>") -- 下一个标签
 -- buf相关
 keymap("n", "<leader>bq", ":bd<CR>") -- 关闭当前buf
 keymap("n", "<leader>bQ", ":bd!<CR>") -- 强制关闭当前buf
+keymap("n", "<leader>bw", ":w<CR>") -- 保存当前buffer
+keymap("n", "<leader>be", ":e!<CR>") -- 撤销当前buffer的改动
 
 -- window相关
 keymap("n", "<leader>q", ":q<CR>") -- 关闭当前window
 keymap("n", "<leader>Q", ":q!<CR>") -- 强制关闭当前window
 keymap("n", "<leader>wq", ":wq<CR>") -- 写入并关闭当前window
+keymap("n", "<leader>wo", "<C-w>o") -- window only
 
 vim.api.nvim_create_user_command("Sort", "%!sort", {})
 vim.api.nvim_create_user_command("Uniq", "%!uniq", {})

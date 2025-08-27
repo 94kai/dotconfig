@@ -288,6 +288,7 @@ else
         { "<leader>f", mode = { "n" }, ":FzfLua<CR>" },
         { "<leader>o", mode = { "n" }, ":FzfLua files<CR>" },
         { "<leader>g", mode = { "n" }, ":FzfLua live_grep<CR>" },
+        { "<leader>e", mode = { "n" }, ":FzfLua oldfiles<CR>" },
       },
       config = function()
         -- calling `setup` is optional for customization
