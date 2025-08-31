@@ -25,7 +25,11 @@ if lualine then
 					path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
 				},
 			},
+
+			-- lualine_a = {
+			-- },
 			lualine_x = {
+				'%{ZFVimIME_IMEStatusline()}',
 				{
 					'searchcount',
 					maxcount = 99999,

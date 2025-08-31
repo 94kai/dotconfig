@@ -21,7 +21,7 @@ end
 
 local commonConfig = {
   {
-		-- 自动括号补全
+    -- 自动括号补全
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
@@ -95,20 +95,20 @@ else
       "junegunn/vim-peekaboo",
     },
     {
-    	-- 通过p/P粘贴之后，可以通过c-n c-p来切换粘贴的内容
-    	"svermeulen/vim-yoink",
-    	config = function ()
-    		vim.cmd("nmap <c-n> <plug>(YoinkPostPasteSwapBack)")
-    		vim.cmd("nmap <c-p> <plug>(YoinkPostPasteSwapForward)")
-    		vim.cmd("nmap p <plug>(YoinkPaste_p)")
-    		vim.cmd("nmap P <plug>(YoinkPaste_P)")
+      -- 通过p/P粘贴之后，可以通过c-n c-p来切换粘贴的内容
+      "svermeulen/vim-yoink",
+      config = function()
+        vim.cmd("nmap <c-n> <plug>(YoinkPostPasteSwapBack)")
+        vim.cmd("nmap <c-p> <plug>(YoinkPostPasteSwapForward)")
+        vim.cmd("nmap p <plug>(YoinkPaste_p)")
+        vim.cmd("nmap P <plug>(YoinkPaste_P)")
 
-    		-- Also replace the default gp with yoink paste so we can toggle paste in this case too
-    		-- vim.cmd("nmap gp <plug>(YoinkPaste_gp)")
-    		-- vim.cmd("nmap gP <plug>(YoinkPaste_gP)")
+        -- Also replace the default gp with yoink paste so we can toggle paste in this case too
+        -- vim.cmd("nmap gp <plug>(YoinkPaste_gp)")
+        -- vim.cmd("nmap gP <plug>(YoinkPaste_gP)")
 
-    		vim.g.yoinkSavePersistently = 1
-    	end
+        vim.g.yoinkSavePersistently = 1
+      end,
     },
     {
       "rcarriga/nvim-notify",
@@ -359,9 +359,19 @@ else
         require("todolist").setup()
       end,
     },
-		-- 非焦点窗口变灰色
-		{
-			'blueyed/vim-diminactive'
-		}
+    -- 非焦点窗口变灰色
+    {
+      "blueyed/vim-diminactive",
+    },
+    {
+			-- vim内置输入法，;;进行切换。特殊环境下使用
+      "ZSaberLv0/ZFVimIM",
+      dependencies = {
+				-- 提升词库加载性能
+        "ZSaberLv0/ZFVimJob",
+				-- 基础词库
+        "ZSaberLv0/ZFVimIM_pinyin_base",
+      },
+    },
   }
 end
