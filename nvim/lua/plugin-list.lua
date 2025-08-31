@@ -21,6 +21,14 @@ end
 
 local commonConfig = {
   {
+    -- lsp的配置
+    "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.lsp.lsp-config")
+    end,
+  },
+  {
     -- 自动括号补全
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -229,14 +237,6 @@ else
       },
     },
     {
-      -- lsp的配置
-      "neovim/nvim-lspconfig",
-      event = "VeryLazy",
-      config = function()
-        require("plugins.lsp.lsp-config")
-      end,
-    },
-    {
       -- 补全插件 会导致批量操作（normal命令）巨慢无比
       "hrsh7th/nvim-cmp",
       event = { "InsertEnter", "CmdlineEnter" },
@@ -364,12 +364,12 @@ else
       "blueyed/vim-diminactive",
     },
     {
-			-- vim内置输入法，;;进行切换。特殊环境下使用
+      -- vim内置输入法，;;进行切换。特殊环境下使用
       "ZSaberLv0/ZFVimIM",
       dependencies = {
-				-- 提升词库加载性能
+        -- 提升词库加载性能
         "ZSaberLv0/ZFVimJob",
-				-- 基础词库
+        -- 基础词库
         "ZSaberLv0/ZFVimIM_pinyin_base",
       },
     },
