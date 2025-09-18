@@ -460,7 +460,8 @@ require("fzf-lua").setup({
     actions = {
       -- actions inherit from 'actions.files' and merge
       -- this action toggles between 'grep' and 'live_grep'
-      ["ctrl-g"] = { actions.grep_lgrep },
+      ["ctrl-r"] = { actions.grep_lgrep },
+      ["ctrl-g"] = { actions.toggle_ignore },
       -- uncomment to enable '.gitignore' toggle for grep
       -- ["ctrl-r"]   = { actions.toggle_ignore }
     },
