@@ -363,15 +363,15 @@ else
     {
       "blueyed/vim-diminactive",
     },
-    {
-      -- vim内置输入法，;;进行切换。特殊环境下使用
-      "ZSaberLv0/ZFVimIM",
-      dependencies = {
-        -- 提升词库加载性能
-        "ZSaberLv0/ZFVimJob",
-        -- 基础词库
-        "ZSaberLv0/ZFVimIM_pinyin_base",
-      },
-    },
+    -- {
+    --   -- vim内置输入法，;;进行切换。特殊环境下使用
+    --   "ZSaberLv0/ZFVimIM",
+    --   dependencies = {
+    --     -- 提升词库加载性能
+    --     "ZSaberLv0/ZFVimJob",
+    --     -- 基础词库
+    --     "ZSaberLv0/ZFVimIM_pinyin_base",
+    --   },
+    -- },
   }
 end
