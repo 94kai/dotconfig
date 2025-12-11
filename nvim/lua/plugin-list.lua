@@ -190,13 +190,13 @@ else
     -- 	end
     -- },
     -- 主题---------------
-    {
-      "tomasiser/vim-code-dark",
-      config = function()
-        -- 设置vscode风格的colorscheme
-        vim.cmd("colorscheme codedark")
-      end,
-    },
+    -- {
+    --   "tomasiser/vim-code-dark",
+    --   config = function()
+    --     -- 设置vscode风格的colorscheme
+    --     vim.cmd("colorscheme codedark")
+    --   end,
+    -- },
     -- {
     --   "folke/tokyonight.nvim",
     -- event = "VeryLazy",

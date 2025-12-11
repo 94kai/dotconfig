@@ -104,9 +104,9 @@ syn keyword logLevelTrace TRACE FINER FINEST
 
 " Highlight links
 "---------------------------------------------------------------------------
-hi def link logNumber Number
-hi def link logHexNumber Number
-hi def link logBinaryNumber Number
+hi def link logNumber String
+hi def link logHexNumber String
+hi def link logBinaryNumber String
 hi def link logFloatNumber Float
 hi def link logBoolean Boolean
 hi def link logNull Constant
@@ -124,7 +124,7 @@ hi def link logMD5 Label
 hi def link logIPV4 Label
 hi def link logIPV6 ErrorMsg
 hi def link logMacAddress Label
-hi def link logFilePath Conditional
+hi def link logFilePath Function
 
 hi def link logSysColumns Conditional
 hi def link logSysProcess Include
@@ -148,7 +148,7 @@ hi def link logLevelCritical ErrorMsg
 hi def link logLevelError ErrorMsg
 hi def link logLevelWarning WarningMsg
 hi def link logLevelNotice Character
-hi def link logLevelInfo Repeat
+hi def link logLevelInfo Identifier
 hi def link logLevelDebug Debug
 hi def link logLevelTrace Comment
 
