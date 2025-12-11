@@ -29,7 +29,6 @@ if lualine then
 			-- lualine_a = {
 			-- },
 			lualine_x = {
-				'%{ZFVimIME_IMEStatusline()}',
 				{
 					'searchcount',
 					maxcount = 99999,

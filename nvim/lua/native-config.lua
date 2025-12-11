@@ -1,7 +1,7 @@
 local vim = vim
 
 -- 高亮的列数，避免卡顿
-vim.opt.synmaxcol = 100
+-- vim.opt.synmaxcol = 1000
 vim.g.mapleader = " "
 vim.o.ignorecase = true
 vim.o.smartcase = true
