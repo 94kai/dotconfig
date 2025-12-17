@@ -195,7 +195,9 @@ else
       priority = 1000, -- Ensure it loads first
       config = function()
         -- 设置vscode风格的colorscheme
-        vim.cmd("colorscheme onedark")
+        vim.cmd("colorscheme onedark_dark")
+				vim.cmd("highlight Visual guibg=#3498db") -- 选中的背景色
+				vim.cmd("highlight Visual guifg=white") -- 选中的前景色
       end,
     },
     -- {
