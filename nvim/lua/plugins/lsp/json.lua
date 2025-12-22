@@ -1,4 +1,4 @@
-require('lspconfig').jsonls.setup {
+vim.lsp.config("lspconfig", {
 	settings = {
 		json = {
 			schemas = {
@@ -12,5 +12,5 @@ require('lspconfig').jsonls.setup {
 			enable = true
 		}
 	}
-}
+})
 

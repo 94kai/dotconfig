@@ -103,6 +103,11 @@ else
       "junegunn/vim-peekaboo",
     },
     {
+      "esmuellert/vscode-diff.nvim",
+      dependencies = { "MunifTanjim/nui.nvim" },
+      cmd = "CodeDiff",
+    },
+    {
       -- 通过p/P粘贴之后，可以通过c-n c-p来切换粘贴的内容
       "svermeulen/vim-yoink",
       config = function()
@@ -196,8 +201,8 @@ else
       config = function()
         -- 设置vscode风格的colorscheme
         vim.cmd("colorscheme onedark_dark")
-				vim.cmd("highlight Visual guibg=#3498db") -- 选中的背景色
-				vim.cmd("highlight Visual guifg=white") -- 选中的前景色
+        vim.cmd("highlight Visual guibg=#3498db") -- 选中的背景色
+        vim.cmd("highlight Visual guifg=white") -- 选中的前景色
       end,
     },
     -- {

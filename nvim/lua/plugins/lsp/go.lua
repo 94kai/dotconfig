@@ -1,23 +1,21 @@
-require('lspconfig').gopls.setup({
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-			gofumpt = true,
-		},
-	},
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
 })
 local autocmd = vim.api.nvim_create_autocmd
-
-
 
 autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
     local params = vim.lsp.util.make_range_params()
-    params.context = {only = {"source.organizeImports"}}
+    params.context = { only = { "source.organizeImports" } }
     -- buf_request_sync defaults to a 1000ms timeout. Depending on your
     -- machine and codebase, you may want longer. Add an additional
     -- argument after params if you find that you have to write the file
@@ -32,7 +30,6 @@ autocmd("BufWritePre", {
         end
       end
     end
-    vim.lsp.buf.format({async = false})
-  end
+    vim.lsp.buf.format({ async = false })
+  end,
 })
-
