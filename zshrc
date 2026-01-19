@@ -150,9 +150,6 @@ alias todo="v ~/project/todolist/work.todo.md"
 alias fzfv="v \`fzf\`"
 alias fzfp="fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200\'"
 alias fzfgit="git log --oneline $* | fzf -e --multi --preview=\"git show {+1}\""
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # 可以在.bash_profile配置下面配置CUSTOM_TMUX_SESSION_NAME
@@ -165,6 +162,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(fnm env --use-on-cd)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
