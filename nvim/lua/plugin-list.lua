@@ -182,12 +182,12 @@ else
         require("plugins.indent-blankline")
       end,
     },
-    -- {
-    -- 	"voldikss/vim-floaterm",
-    -- 	config = function()
-    -- 		require("plugins.floaterm")
-    -- 	end,
-    -- },
+    {
+    	"voldikss/vim-floaterm",
+    	config = function()
+    		require("plugins.floaterm")
+    	end,
+    },
     -- {
     -- 	'gen740/SmoothCursor.nvim',
     -- 	config = function()
