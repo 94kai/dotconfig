@@ -79,4 +79,8 @@ vim.api.nvim_create_user_command("Sort", "%!sort", {})
 vim.api.nvim_create_user_command("Uniq", "%!uniq", {})
 vim.api.nvim_create_user_command("LineWrapping", "%s/\\n/\r/g", {})
 
-
+-- neovide配置
+if vim.g.neovide then
+	vim.g.neovide_window_blurred = true
+	vim.g.neovide_cursor_vfx_mode = "ripple"
+end
