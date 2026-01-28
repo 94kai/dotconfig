@@ -2,7 +2,6 @@
 patch:
   app_options:
     # 查询命令:osascript -e 'id of app "JetBrains Client"'
-    
     com.todesktop.230313mzl4w4u92:
       ascii_mode: true
       vi_mode: true
@@ -10,6 +9,10 @@ patch:
       ascii_mode: true
       vi_mode: true
     cn.trae.app:
+      ascii_mode: true
+      no_inline: true
+      vim_mode: true
+    com.github.wez.wezterm:
       ascii_mode: true
       no_inline: true
       vim_mode: true

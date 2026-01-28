@@ -3,3 +3,4 @@ nvim/.netrwhist
 nvim/lua/ignore-config.lua
 rime/build
 rime/luna_pinyin.userdb
+wezterm/local-config.lua
