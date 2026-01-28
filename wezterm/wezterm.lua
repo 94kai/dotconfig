@@ -18,7 +18,6 @@ if ok then
 else
 	wezterm.log_info("local.config not found")
 end
-
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- macOS 不显示 title bar
@@ -29,10 +28,14 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.font = wezterm.font_with_fallback {
+    { family = 'JetBrains Mono', weight = 'Medium' },
+    { family = 'Maple Mono NF', weight = 'Medium' },  -- 备选，支持中文和 Nerd Font
+    'PingFang SC',  -- 中文回退、
+}
 config.window_close_confirmation = "NeverPrompt"
 -- config.disable_default_key_bindings = true
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
-
 -- 滚动缓存区
 config.scrollback_lines = 3500
 config.keys = {
