@@ -1,6 +1,9 @@
 brew install iterm2
 git@github.com:94kai/dotconfig.git
 
+
+# ================wezterm
+ln -s ~/project/dotconfig/wezterm ~/.config/wezterm
 # ================neovim相关
 ln -s ~/project/dotconfig/nvim ~/.config/nvim
 

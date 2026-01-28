@@ -28,7 +28,9 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.disable_default_key_bindings = true
+
+config.window_close_confirmation = 'NeverPrompt'
+-- config.disable_default_key_bindings = true
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
 
 -- 滚动缓存区

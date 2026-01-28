@@ -141,6 +141,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias less="less -N"
+alias n="nnn"
 alias v="nvim"
 alias vv="neovide"
 alias vim="nvim"
