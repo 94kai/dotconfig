@@ -29,13 +29,14 @@ config.window_padding = {
 	bottom = 0,
 }
 
-config.window_close_confirmation = 'NeverPrompt'
+config.window_close_confirmation = "NeverPrompt"
 -- config.disable_default_key_bindings = true
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
 
 -- 滚动缓存区
 config.scrollback_lines = 3500
 config.keys = {
+	{ key = "k", mods = "SUPER", action = act.ClearScrollback("ScrollbackAndViewport") },
 	-- 水平分屏：Cmd+D
 	{
 		key = "=",
@@ -145,39 +146,58 @@ config.keys = {
 			alphabet = "abcdefghijklmnopqrstuvwxyz", -- 只显示字母
 		}),
 	},
-	-- 切换tab
-  { key = '[', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
-  { key = ']', mods = 'LEADER', action = act.ActivateTabRelative(1) },
-  {
-    key = 'f',
-    mods = 'SUPER',
-    action = act.Search { CaseInSensitiveString = '' },
-  },
+	{
+		key = "f",
+		mods = "SUPER",
+		action = act.Search({ CaseInSensitiveString = "" }),
+	},
 }
 config.colors = {
 	split = "#ff6b6b", -- 焦点分屏的边框变红色
 }
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local is_zoomed = tab.active_pane.is_zoomed
-
-	local bg_color = "#1e1e2e"
-	local fg_color = "#cdd6f4"
-
-	-- 全屏后，修改tab-title的颜色
-	if is_zoomed then
-		bg_color = "#ff6b6b" -- 红色
-		fg_color = "#1e1e2e"
+function tab_title(tab_info)
+	local title = tab_info.tab_title
+	if title and #title > 0 then
+		return title
 	end
-	return {
-		{ Background = { Color = bg_color } },
-		{ Foreground = { Color = fg_color } },
-		{ Text = " " .. tab.active_pane.title .. " " },
-	}
+	return tab_info.active_pane.title
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = tab_title(tab)
+	local is_zoomed = tab.active_pane.is_zoomed
+	if tab.is_active and is_zoomed then
+		return {
+			{ Background = { Color = "red" } },
+			{ Text = " " .. title .. " " },
+		}
+	end
+	-- 触发一下is_last_active，tab的序号就能展示，怀疑是一个bug，还必须在is_zoomed后面执行
+	local _ = tab.is_last_active
+	return title
 end)
+-- wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+-- 	-- local is_zoomed = tab.active_pane.is_zoomed
+--
+-- 	local bg_color = "#1e1e2e"
+-- 	local fg_color = "#cdd6f4"
+--
+-- 	-- 全屏后，修改tab-title的颜色
+-- 	if is_zoomed then
+-- 		bg_color = "#ff6b6b" -- 红色
+-- 		fg_color = "#1e1e2e"
+-- 	end
+-- 	-- return {
+-- 	-- 	-- { Background = { Color = bg_color } },
+-- 	-- 	-- { Foreground = { Color = fg_color } },
+-- 	-- 	{ Text = " " .. tab.active_pane.title .. " " },
+-- 	-- }
+-- 	return tab.tab_title
+-- end)
 
 config.inactive_pane_hsb = {
-	saturation = 0.3, -- 降低饱和度
+	saturation = 0.7, -- 降低饱和度
 	brightness = 0.3, -- 降低亮度，让非活动窗格变暗
 }
 
