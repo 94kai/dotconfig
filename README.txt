@@ -1,6 +1,9 @@
 brew install iterm2
 git@github.com:94kai/dotconfig.git
 
+brew install fzf
+brew install yazi
+brew install zoxide # 替代zsh的z
 
 # ================wezterm
 ln -s ~/project/dotconfig/wezterm ~/.config/wezterm
