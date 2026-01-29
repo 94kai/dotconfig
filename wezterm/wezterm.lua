@@ -27,17 +27,48 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+wezterm.on("update-status", function(window, pane)
+	local leader_active = window:leader_is_active()
+	local key_table = window:active_key_table()
 
-config.font = wezterm.font_with_fallback {
-    { family = 'JetBrains Mono', weight = 'Medium' },
-    { family = 'Maple Mono NF', weight = 'Medium' },  -- 备选，支持中文和 Nerd Font
-    'PingFang SC',  -- 中文回退、
-}
+	local bg_color, fg_color
+
+	if leader_active then
+		bg_color = "#fab387" -- 橙色
+		fg_color = "#1e1e2e"
+	elseif key_table == "copy_mode" then
+		bg_color = "#9ece6a"
+		fg_color = "#1e1e2e"
+	elseif key_table == "search_mode" then
+		bg_color = "#89b4fa"
+		fg_color = "#1e1e2e"
+	elseif key_table then
+		bg_color = "#cba6f7"
+		fg_color = "#1e1e2e"
+	else
+		bg_color = "#313244"
+		fg_color = "#cdd6f4"
+	end
+	local cwd = pane:get_current_working_dir()
+
+	window:set_right_status(wezterm.format({
+
+		{ Background = { Color = bg_color } },
+		{ Foreground = { Color = fg_color } },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Text = " " .. (cwd and cwd.file_path or "") .. "  " },
+	}))
+end)
+config.font = wezterm.font_with_fallback({
+	{ family = "JetBrains Mono", weight = "Medium" },
+	{ family = "Maple Mono NF", weight = "Medium" }, -- 备选，支持中文和 Nerd Font
+	"PingFang SC", -- 中文回退、
+})
 config.window_background_image = "/Users/xuekai/Documents/itermbg_dontdel.jpg"
 -- config.window_background_image_opacity = 0.55  -- 很淡
 -- 背景图的缩放模式
 config.window_background_image_hsb = {
-  brightness = 0.05,  -- 降低亮度让文字更清楚
+	brightness = 0.05, -- 降低亮度让文字更清楚
 }
 -- config.window_background_opacity = 0.89  -- 整个窗口透明度
 -- config.macos_window_background_blur = 5 -- 背景模糊
@@ -49,17 +80,17 @@ config.scrollback_lines = 3500
 config.keys = {
 	-- Rename Tab Title
 	{
-    key = "r",
-    mods = "SUPER",
-    action = act.PromptInputLine {
-      description = "Rename tab:",
-      action = wezterm.action_callback(function(window, pane, line)
-        if line then
-          window:active_tab():set_title(line)
-        end
-      end),
-    },
-  },
+		key = "r",
+		mods = "SUPER",
+		action = act.PromptInputLine({
+			description = "Rename tab:",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 	{ key = "k", mods = "SUPER", action = act.ClearScrollback("ScrollbackAndViewport") },
 	-- 水平分屏：Cmd+D
 	{
@@ -107,8 +138,8 @@ config.keys = {
 		action = act.SpawnTab("CurrentPaneDomain"),
 	},
 	-- 切换Tab
-  {key="2", mods="SUPER", action=act.ActivateTabRelative(1)},
-  {key="1", mods="SUPER", action=act.ActivateTabRelative(-1)},
+	{ key = "2", mods = "SUPER", action = act.ActivateTabRelative(1) },
+	{ key = "1", mods = "SUPER", action = act.ActivateTabRelative(-1) },
 	-- 调整分屏大小（Vim style）
 	{
 		key = "h",
@@ -147,28 +178,13 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.QuickSelectArgs({
 			patterns = {
-				-- 常用文本模式
-				"\\b\\w{3,}\\b", -- 3个字符以上的单词
+				"https?://[^\\s]+", -- URL
+				"~?/[\\w\\-\\./]+", -- 绝对/相对路径
+				"0x[0-9a-fA-F]+", -- 十六进制数
+				"#[0-9a-fA-F]{6}", -- 十六进制颜色
+				"[\\w\\-\\./]+\\.[a-zA-Z]+", -- 文件路径
 				"\\b[A-Z]\\w*\\b", -- 大写开头的单词（类名等）
 				"\\b[a-z_]+\\b", -- 小写单词或变量名
-
-				-- 数字和代码相关
-				"\\d{4,}", -- 4位以上数字（ID、年份等）
-				"0x[0-9a-fA-F]+", -- 十六进制数
-				"\\d+\\.\\d+\\.\\d+\\.\\d+", -- IP地址
-
-				-- 网络和路径
-				"https?://[^\\s]+", -- URL
-				"www\\.[^\\s]+\\.[a-zA-Z]{2,}", -- 网站
-				"[\\w\\-\\./]+\\.[a-zA-Z]+", -- 文件路径
-				"~?/[\\w\\-\\./]+", -- 绝对/相对路径
-
-				-- 特殊格式
-				"[\\w\\.-]+@[\\w\\.-]+\\.[\\w]+", -- 邮箱地址
-				"#[0-9a-fA-F]{6}", -- 十六进制颜色
-				"\\$[A-Z_]+", -- 环境变量
-				"\\b[A-Z_]+\\b", -- 常量
-				-- '\\b[a-zA-Z]\\w*',  -- 匹配单词
 			},
 			alphabet = "abcdefghijklmnopqrstuvwxyz", -- 只显示字母
 		}),
