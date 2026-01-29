@@ -33,15 +33,20 @@ wezterm.on("update-status", function(window, pane)
 
 	local bg_color, fg_color
 
+	local cwd = pane:get_current_working_dir()
+	local text = (cwd and cwd.file_path or "")
 	if leader_active then
 		bg_color = "#fab387" -- 橙色
 		fg_color = "#1e1e2e"
+		text = " LEADER "
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
 		fg_color = "#1e1e2e"
+		text = " COPY_MODE "
 	elseif key_table == "search_mode" then
 		bg_color = "#89b4fa"
 		fg_color = "#1e1e2e"
+		text = " SEARCH_MODE "
 	elseif key_table then
 		bg_color = "#cba6f7"
 		fg_color = "#1e1e2e"
@@ -49,14 +54,13 @@ wezterm.on("update-status", function(window, pane)
 		bg_color = "#313244"
 		fg_color = "#cdd6f4"
 	end
-	local cwd = pane:get_current_working_dir()
 
 	window:set_right_status(wezterm.format({
 
 		{ Background = { Color = bg_color } },
 		{ Foreground = { Color = fg_color } },
 		{ Attribute = { Intensity = "Bold" } },
-		{ Text = " " .. (cwd and cwd.file_path or "") .. "  " },
+		{ Text = " " .. (text) .. "  " },
 	}))
 end)
 config.font = wezterm.font_with_fallback({
@@ -168,13 +172,13 @@ config.keys = {
 	},
 	-- 进入复制模式
 	{
-		key = " ",
+		key = "y",
 		mods = "LEADER",
 		action = act.ActivateCopyMode,
 	},
 	-- 进入快速复制模式
 	{
-		key = "y",
+		key = "s",
 		mods = "LEADER",
 		action = wezterm.action.QuickSelectArgs({
 			patterns = {
