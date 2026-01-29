@@ -39,6 +39,19 @@ config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
 -- 滚动缓存区
 config.scrollback_lines = 3500
 config.keys = {
+	-- Rename Tab Title
+	{
+    key = "r",
+    mods = "SUPER",
+    action = act.PromptInputLine {
+      description = "Rename tab:",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    },
+  },
 	{ key = "k", mods = "SUPER", action = act.ClearScrollback("ScrollbackAndViewport") },
 	-- 水平分屏：Cmd+D
 	{
@@ -85,6 +98,9 @@ config.keys = {
 		mods = "LEADER",
 		action = act.SpawnTab("CurrentPaneDomain"),
 	},
+	-- 切换Tab
+  {key="2", mods="SUPER", action=act.ActivateTabRelative(1)},
+  {key="1", mods="SUPER", action=act.ActivateTabRelative(-1)},
 	-- 调整分屏大小（Vim style）
 	{
 		key = "h",
@@ -172,7 +188,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local is_zoomed = tab.active_pane.is_zoomed
 	if tab.is_active and is_zoomed then
 		return {
-			{ Background = { Color = "red" } },
+			{ Background = { Color = "green" } },
 			{ Text = " " .. title .. " " },
 		}
 	end
