@@ -33,6 +33,14 @@ config.font = wezterm.font_with_fallback {
     { family = 'Maple Mono NF', weight = 'Medium' },  -- 备选，支持中文和 Nerd Font
     'PingFang SC',  -- 中文回退、
 }
+config.window_background_image = "/Users/xuekai/Documents/itermbg_dontdel.jpg"
+-- config.window_background_image_opacity = 0.55  -- 很淡
+-- 背景图的缩放模式
+config.window_background_image_hsb = {
+  brightness = 0.05,  -- 降低亮度让文字更清楚
+}
+-- config.window_background_opacity = 0.89  -- 整个窗口透明度
+-- config.macos_window_background_blur = 5 -- 背景模糊
 config.window_close_confirmation = "NeverPrompt"
 -- config.disable_default_key_bindings = true
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
