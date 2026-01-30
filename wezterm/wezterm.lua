@@ -27,6 +27,31 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+
+
+
+
+local search_mode = wezterm.gui.default_key_tables().search_mode
+-- 连按两次Super-f 清空搜索词
+table.insert(search_mode, { key = 'f', mods = 'SUPER', action = act.Multiple { act.CopyMode 'ClearPattern', act.ClearSelection, act.CopyMode 'ClearSelectionMode', act.CopyMode 'MoveToScrollbackBottom' }})
+-- 搜索模式下回车进入copy-mode
+table.insert(search_mode, {key="Enter", mods="NONE", action="ActivateCopyMode"})
+
+local copy_mode = wezterm.gui.default_key_tables().copy_mode
+-- copy模式下，按/，进入搜索模式
+table.insert(copy_mode, { key = '/', mods = 'NONE', action = act.Search {CaseInSensitiveString = ""}})
+-- copy模式下，通过n/S-n跳转匹配项
+table.insert(copy_mode, { key = 'n', mods = 'NONE', action = act.CopyMode 'NextMatch'})
+table.insert(copy_mode, { key = 'n', mods = 'SHIFT', action = act.CopyMode 'PriorMatch'})
+
+-- Update key tables with new keys
+config.key_tables = {
+  search_mode = search_mode,
+  copy_mode = copy_mode
+}
+
+
+
 wezterm.on("update-status", function(window, pane)
 	local leader_active = window:leader_is_active()
 	local key_table = window:active_key_table()
