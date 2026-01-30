@@ -253,6 +253,9 @@ end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = tab_title(tab)
+	if #title > 10 then
+		title = ".."..string.sub(title, -12)
+	end
 	local is_zoomed = tab.active_pane.is_zoomed
 	if tab.is_active and is_zoomed then
 		return {
@@ -261,27 +264,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		}
 	end
 	-- 触发一下is_last_active，tab的序号就能展示，怀疑是一个bug，还必须在is_zoomed后面执行
-	local _ = tab.is_last_active
-	return title
+	-- local _ = tab.is_last_active
+	return " " .. title .. " "
 end)
--- wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
--- 	-- local is_zoomed = tab.active_pane.is_zoomed
---
--- 	local bg_color = "#1e1e2e"
--- 	local fg_color = "#cdd6f4"
---
--- 	-- 全屏后，修改tab-title的颜色
--- 	if is_zoomed then
--- 		bg_color = "#ff6b6b" -- 红色
--- 		fg_color = "#1e1e2e"
--- 	end
--- 	-- return {
--- 	-- 	-- { Background = { Color = bg_color } },
--- 	-- 	-- { Foreground = { Color = fg_color } },
--- 	-- 	{ Text = " " .. tab.active_pane.title .. " " },
--- 	-- }
--- 	return tab.tab_title
--- end)
 
 config.inactive_pane_hsb = {
 	saturation = 0.7, -- 降低饱和度
