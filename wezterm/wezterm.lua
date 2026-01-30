@@ -20,37 +20,44 @@ else
 end
 -- This will hold the configuration.
 local config = wezterm.config_builder()
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- macOS 不显示 title bar
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 0,
+	top = 52,
 	bottom = 0,
 }
 
-
-
+config.use_fancy_tab_bar = false -- 老式tab
+config.tab_bar_at_bottom = true -- tab 栏位置
 
 local search_mode = wezterm.gui.default_key_tables().search_mode
 -- 连按两次Super-f 清空搜索词
-table.insert(search_mode, { key = 'f', mods = 'SUPER', action = act.Multiple { act.CopyMode 'ClearPattern', act.ClearSelection, act.CopyMode 'ClearSelectionMode', act.CopyMode 'MoveToScrollbackBottom' }})
+table.insert(search_mode, {
+	key = "f",
+	mods = "SUPER",
+	action = act.Multiple({
+		act.CopyMode("ClearPattern"),
+		act.ClearSelection,
+		act.CopyMode("ClearSelectionMode"),
+		act.CopyMode("MoveToScrollbackBottom"),
+	}),
+})
 -- 搜索模式下回车进入copy-mode
-table.insert(search_mode, {key="Enter", mods="NONE", action="ActivateCopyMode"})
+table.insert(search_mode, { key = "Enter", mods = "NONE", action = "ActivateCopyMode" })
 
 local copy_mode = wezterm.gui.default_key_tables().copy_mode
 -- copy模式下，按/，进入搜索模式
-table.insert(copy_mode, { key = '/', mods = 'NONE', action = act.Search {CaseInSensitiveString = ""}})
+table.insert(copy_mode, { key = "/", mods = "NONE", action = act.Search({ CaseInSensitiveString = "" }) })
 -- copy模式下，通过n/S-n跳转匹配项
-table.insert(copy_mode, { key = 'n', mods = 'NONE', action = act.CopyMode 'NextMatch'})
-table.insert(copy_mode, { key = 'n', mods = 'SHIFT', action = act.CopyMode 'PriorMatch'})
+table.insert(copy_mode, { key = "n", mods = "NONE", action = act.CopyMode("NextMatch") })
+table.insert(copy_mode, { key = "n", mods = "SHIFT", action = act.CopyMode("PriorMatch") })
 
 -- Update key tables with new keys
 config.key_tables = {
-  search_mode = search_mode,
-  copy_mode = copy_mode
+	search_mode = search_mode,
+	copy_mode = copy_mode,
 }
-
-
 
 wezterm.on("update-status", function(window, pane)
 	local leader_active = window:leader_is_active()
@@ -60,32 +67,40 @@ wezterm.on("update-status", function(window, pane)
 
 	local cwd = pane:get_current_working_dir()
 	local text = (cwd and cwd.file_path or "")
+	local mode = " NORMAL "
 	if leader_active then
 		bg_color = "#fab387" -- 橙色
 		fg_color = "#1e1e2e"
-		text = " LEADER "
+		mode = " LEADER "
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
 		fg_color = "#1e1e2e"
-		text = " COPY_MODE "
+		mode = " COPY_MODE "
 	elseif key_table == "search_mode" then
 		bg_color = "#89b4fa"
 		fg_color = "#1e1e2e"
-		text = " SEARCH_MODE "
+		mode = " SEARCH_MODE "
 	elseif key_table then
 		bg_color = "#cba6f7"
 		fg_color = "#1e1e2e"
 	else
 		bg_color = "#313244"
-		fg_color = "#cdd6f4"
+		fg_color = "#b2b2b2"
 	end
 
-	window:set_right_status(wezterm.format({
+	window:set_left_status(wezterm.format({
 
 		{ Background = { Color = bg_color } },
 		{ Foreground = { Color = fg_color } },
 		{ Attribute = { Intensity = "Bold" } },
-		{ Text = " " .. (text) .. "  " },
+		{ Text = mode },
+	}))
+	window:set_right_status(wezterm.format({
+
+		-- { Background = { Color = bg_color } },
+		-- { Foreground = { Color = fg_color } },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Text = text },
 	}))
 end)
 config.font = wezterm.font_with_fallback({
