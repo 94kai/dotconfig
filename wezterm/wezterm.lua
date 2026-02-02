@@ -20,6 +20,23 @@ else
 end
 -- This will hold the configuration.
 local config = wezterm.config_builder()
+
+config.mouse_bindings = {
+	-- 禁用普通左键点击打开链接
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "NONE",
+		action = wezterm.action.CompleteSelection("PrimarySelection"),
+	},
+
+	-- Command + 左键 才打开链接
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "SUPER",
+		action = wezterm.action.OpenLinkAtMouseCursor,
+	},
+}
+
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = {
 	left = 0,
@@ -114,7 +131,7 @@ config.window_background_image = "/Users/xuekai/Documents/itermbg_dontdel.jpg"
 config.window_background_image_hsb = {
 	brightness = 0.05, -- 降低亮度让文字更清楚
 }
--- config.window_background_opacity = 0.89  -- 整个窗口透明度
+-- config.window_background_opacity = 0.89 -- 整个窗口透明度
 -- config.macos_window_background_blur = 5 -- 背景模糊
 config.window_close_confirmation = "NeverPrompt"
 -- config.disable_default_key_bindings = true
@@ -254,12 +271,13 @@ end
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local title = tab_title(tab)
 	if #title > 10 then
-		title = ".."..string.sub(title, -12)
+		title = ".." .. string.sub(title, -12)
 	end
 	local is_zoomed = tab.active_pane.is_zoomed
 	if tab.is_active and is_zoomed then
 		return {
-			{ Background = { Color = "green" } },
+			{ Background = { Color = "#73daca" } },
+			{ Foreground = { Color = "black" } },
 			{ Text = " " .. title .. " " },
 		}
 	end
