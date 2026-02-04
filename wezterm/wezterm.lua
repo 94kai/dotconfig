@@ -41,12 +41,12 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 52,
+	top = 0,
 	bottom = 0,
 }
 
-config.use_fancy_tab_bar = false -- 老式tab
-config.tab_bar_at_bottom = true -- tab 栏位置
+config.use_fancy_tab_bar = true -- tab样式
+config.tab_bar_at_bottom = false -- tab 栏位置
 
 local search_mode = wezterm.gui.default_key_tables().search_mode
 -- 连按两次Super-f 清空搜索词
@@ -80,7 +80,9 @@ wezterm.on("update-status", function(window, pane)
 	local leader_active = window:leader_is_active()
 	local key_table = window:active_key_table()
 
-	local bg_color, fg_color
+	local bg_color, fg_color, fg_color_default, bg_color_default
+	fg_color_default = "#b2b2b2"
+	bg_color_default = "#313244"
 
 	local cwd = pane:get_current_working_dir()
 	local text = (cwd and cwd.file_path or "")
@@ -92,11 +94,11 @@ wezterm.on("update-status", function(window, pane)
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
 		fg_color = "#1e1e2e"
-		mode = " COPY_MODE "
+		mode = " COPY "
 	elseif key_table == "search_mode" then
 		bg_color = "#89b4fa"
 		fg_color = "#1e1e2e"
-		mode = " SEARCH_MODE "
+		mode = " SEARCH "
 	elseif key_table then
 		bg_color = "#cba6f7"
 		fg_color = "#1e1e2e"
@@ -105,19 +107,28 @@ wezterm.on("update-status", function(window, pane)
 		fg_color = "#b2b2b2"
 	end
 
-	window:set_left_status(wezterm.format({
+	-- window:set_left_status(wezterm.format({
+	--
+	-- 	{ Background = { Color = bg_color } },
+	-- 	{ Foreground = { Color = fg_color } },
+	-- 	{ Attribute = { Intensity = "Bold" } },
+	-- 	{ Text = mode },
+	-- }))
+
+	window:set_right_status(wezterm.format({
 
 		{ Background = { Color = bg_color } },
 		{ Foreground = { Color = fg_color } },
 		{ Attribute = { Intensity = "Bold" } },
 		{ Text = mode },
-	}))
-	window:set_right_status(wezterm.format({
-
-		-- { Background = { Color = bg_color } },
-		-- { Foreground = { Color = fg_color } },
+		{ Background = { Color = bg_color_default } },
+		{ Foreground = { Color = fg_color_default } },
+		{ Attribute = { Intensity = "Bold" } },
+		{ Text = " | " },
+		{ Foreground = { Color = fg_color_default } },
 		{ Attribute = { Intensity = "Bold" } },
 		{ Text = text },
+		{ Text = "  " },
 	}))
 end)
 config.font = wezterm.font_with_fallback({
@@ -125,12 +136,12 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Maple Mono NF", weight = "Medium" }, -- 备选，支持中文和 Nerd Font
 	"PingFang SC", -- 中文回退、
 })
-config.window_background_image = "/Users/xuekai/Documents/itermbg_dontdel.jpg"
+-- config.window_background_image = "/Users/xuekai/Documents/itermbg_dontdel.jpg"
 -- config.window_background_image_opacity = 0.55  -- 很淡
 -- 背景图的缩放模式
-config.window_background_image_hsb = {
-	brightness = 0.05, -- 降低亮度让文字更清楚
-}
+-- config.window_background_image_hsb = {
+-- 	brightness = 0.05, -- 降低亮度让文字更清楚
+-- }
 -- config.window_background_opacity = 0.89 -- 整个窗口透明度
 -- config.macos_window_background_blur = 5 -- 背景模糊
 config.window_close_confirmation = "NeverPrompt"

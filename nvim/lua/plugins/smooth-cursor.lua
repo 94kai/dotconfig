@@ -7,7 +7,7 @@ require('smoothcursor').setup({
 
     fancy = {
         enable = true,        -- enable fancy mode
-        head = { cursor = "", texthl = "SmoothCursor", linehl = nil }, -- false to disable fancy head
+        head = { cursor = "󰝥", texthl = "SmoothCursor", linehl = nil }, -- false to disable fancy head
         body = {
             { cursor = "󰝥", texthl = "SmoothCursorRed" },
             { cursor = "󰝥", texthl = "SmoothCursorOrange" },

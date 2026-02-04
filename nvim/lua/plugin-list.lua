@@ -161,12 +161,12 @@ else
     -- 		require("plugins.easymotion")
     -- 	end,
     -- },
-    -- {
-    --   "karb94/neoscroll.nvim",
-    --   config = function()
-    --     require("plugins.neoscroll")
-    --   end,
-    -- },
+    {
+      "karb94/neoscroll.nvim",
+      config = function()
+        require("plugins.neoscroll")
+      end,
+    },
     {
       "HiPhish/rainbow-delimiters.nvim",
       event = "VeryLazy",
@@ -188,12 +188,12 @@ else
         require("plugins.floaterm")
       end,
     },
-    -- {
-    -- 	'gen740/SmoothCursor.nvim',
-    -- 	config = function()
-    -- 		require('plugins.smooth-cursor')
-    -- 	end
-    -- },
+    {
+    	'gen740/SmoothCursor.nvim',
+    	config = function()
+    		require('plugins.smooth-cursor')
+    	end
+    },
     -- 主题---------------
     {
       "olimorris/onedarkpro.nvim",
