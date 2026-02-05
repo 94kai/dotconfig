@@ -6,3 +6,4 @@ patch:
     Shift_R: commit_code
   schema_list:
     - schema: luna_pinyin_simp # 简体
+  switcher/hotkeys: # 关闭F4热键

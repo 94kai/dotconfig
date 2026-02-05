@@ -210,8 +210,8 @@ config.keys = {
 		action = act.SpawnTab("CurrentPaneDomain"),
 	},
 	-- 切换Tab
-	{ key = "2", mods = "SUPER", action = act.ActivateTabRelative(1) },
-	{ key = "1", mods = "SUPER", action = act.ActivateTabRelative(-1) },
+	{ key = "=", mods = "SUPER", action = act.ActivateTabRelative(1) },
+	{ key = "-", mods = "SUPER", action = act.ActivateTabRelative(-1) },
 	-- 调整分屏大小（Vim style）
 	{
 		key = "h",
