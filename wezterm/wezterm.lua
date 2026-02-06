@@ -57,7 +57,7 @@ table.insert(search_mode, {
 		act.CopyMode("ClearPattern"),
 		act.ClearSelection,
 		act.CopyMode("ClearSelectionMode"),
-		act.CopyMode("MoveToScrollbackBottom"),
+		-- act.CopyMode("MoveToScrollbackBottom"),
 	}),
 })
 -- 搜索模式下回车进入copy-mode
@@ -240,7 +240,7 @@ config.keys = {
 	},
 	-- 进入复制模式
 	{
-		key = "y",
+		key = " ",
 		mods = "LEADER",
 		action = act.ActivateCopyMode,
 	},
@@ -261,11 +261,11 @@ config.keys = {
 			alphabet = "abcdefghijklmnopqrstuvwxyz", -- 只显示字母
 		}),
 	},
-	{
-		key = "f",
-		mods = "SUPER",
-		action = act.Search({ CaseInSensitiveString = "" }),
-	},
+	-- {
+	-- 	key = "f",
+	-- 	mods = "SUPER",
+	-- 	action = act.Search({ CaseInSensitiveString = "" }),
+	-- },
 }
 config.colors = {
 	split = "#ff6b6b", -- 焦点分屏的边框变红色
