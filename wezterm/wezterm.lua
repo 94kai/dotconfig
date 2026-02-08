@@ -90,15 +90,15 @@ wezterm.on("update-status", function(window, pane)
 	if leader_active then
 		bg_color = "#fab387" -- 橙色
 		fg_color = "#1e1e2e"
-		mode = " LEADER "
+		mode =   "  LEADER  "
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
 		fg_color = "#1e1e2e"
-		mode = " COPY "
+		mode =   "    COPY    "
 	elseif key_table == "search_mode" then
 		bg_color = "#89b4fa"
 		fg_color = "#1e1e2e"
-		mode = " SEARCH "
+		mode = " SEARCH  "
 	elseif key_table then
 		bg_color = "#cba6f7"
 		fg_color = "#1e1e2e"
@@ -107,24 +107,17 @@ wezterm.on("update-status", function(window, pane)
 		fg_color = "#b2b2b2"
 	end
 
-	-- window:set_left_status(wezterm.format({
-	--
-	-- 	{ Background = { Color = bg_color } },
-	-- 	{ Foreground = { Color = fg_color } },
-	-- 	{ Attribute = { Intensity = "Bold" } },
-	-- 	{ Text = mode },
-	-- }))
-
-	window:set_right_status(wezterm.format({
+	window:set_left_status(wezterm.format({
 
 		{ Background = { Color = bg_color } },
 		{ Foreground = { Color = fg_color } },
 		{ Attribute = { Intensity = "Bold" } },
 		{ Text = mode },
+	}))
+
+	window:set_right_status(wezterm.format({
+
 		{ Background = { Color = bg_color_default } },
-		{ Foreground = { Color = fg_color_default } },
-		{ Attribute = { Intensity = "Bold" } },
-		{ Text = " | " },
 		{ Foreground = { Color = fg_color_default } },
 		{ Attribute = { Intensity = "Bold" } },
 		{ Text = text },
