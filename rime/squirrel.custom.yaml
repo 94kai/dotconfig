@@ -2,6 +2,9 @@
 patch:
   app_options:
     # 查询命令:osascript -e 'id of app "JetBrains Client"'
+    com.openai.codex:
+      ascii_mode: true
+      vi_mode: true
     com.todesktop.230313mzl4w4u92:
       ascii_mode: true
       vi_mode: true

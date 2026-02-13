@@ -34,6 +34,10 @@ vim.api.nvim_create_user_command("FPython", format_python, {})
 
 
 -- 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后npm install -g prettier 安装全局prettier
+local function replace_escaped_quotes()
+  vim.cmd([[silent keepjumps keeppatterns %s/\\"/"/ge]])
+end
+
 local function format_jsonc()
   local saved_view = vim.fn.winsaveview()
   vim.cmd(":%!prettier --parser jsonc")
@@ -44,8 +48,23 @@ local function format_json()
   vim.cmd(":%!prettier --parser json")
 	vim.fn.winrestview(saved_view)
 end
+
+local function format_jsonc_escaped_quotes()
+  local saved_view = vim.fn.winsaveview()
+  replace_escaped_quotes()
+  vim.cmd(":%!prettier --parser jsonc")
+	vim.fn.winrestview(saved_view)
+end
+local function format_json_escaped_quotes()
+  local saved_view = vim.fn.winsaveview()
+  replace_escaped_quotes()
+  vim.cmd(":%!prettier --parser json")
+	vim.fn.winrestview(saved_view)
+end
 vim.api.nvim_create_user_command("FJson", format_json, {})
 vim.api.nvim_create_user_command("FJsonc", format_jsonc, {})
+vim.api.nvim_create_user_command("FJsonEscaped", format_json_escaped_quotes, {})
+vim.api.nvim_create_user_command("FJsoncEscaped", format_jsonc_escaped_quotes, {})
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
