@@ -91,12 +91,12 @@ wezterm.on("update-status", function(window, pane)
 		bg_color = "#fab387" -- 橙色
 		fg_color = "#fab387" -- 橙色
 		-- fg_color = "#1e1e2e"
-		mode =   "  LEADER  "
+		mode = "  LEADER  "
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
 		fg_color = "#9ece6a"
 		-- fg_color = "#1e1e2e"
-		mode =   "    COPY    "
+		mode = "    COPY    "
 	elseif key_table == "search_mode" then
 		bg_color = "#AE81FF"
 		fg_color = "#AE81FF"
@@ -263,9 +263,10 @@ config.keys = {
 	-- },
 }
 config.colors = {
-	split = "#ff6b6b", -- 焦点分屏的边框变红色
+	split = "#00FFFF",
 }
-
+-- 各种线的宽度（包括分割线）
+config.underline_thickness = "3px"  -- 或 1.5, "150%", "0.08cell"
 function tab_title(tab_info)
 	local title = tab_info.tab_title
 	if title and #title > 0 then
