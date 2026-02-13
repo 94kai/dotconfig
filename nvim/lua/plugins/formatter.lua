@@ -20,20 +20,6 @@ end
 vim.cmd("command! F :Format")
 
 
-
-
--- 格式化python,需要先安装autopep8 linux优先用apt install python3-autopep8,mac可以用pip3 install autopep8
-local function format_python()
-  local saved_view = vim.fn.winsaveview()
-  vim.cmd("%!autopep8 -")
-	vim.fn.winrestview(saved_view)
-end
-vim.api.nvim_create_user_command("FPython", format_python, {})
-
-
-
-
--- 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后npm install -g prettier 安装全局prettier
 local function replace_escaped_quotes()
   vim.cmd([[silent keepjumps keeppatterns %s/\\"/"/ge]])
 end
@@ -41,25 +27,25 @@ end
 local function format_jsonc()
   local saved_view = vim.fn.winsaveview()
   vim.cmd(":%!prettier --parser jsonc")
-	vim.fn.winrestview(saved_view)
+  vim.fn.winrestview(saved_view)
 end
 local function format_json()
   local saved_view = vim.fn.winsaveview()
   vim.cmd(":%!prettier --parser json")
-	vim.fn.winrestview(saved_view)
+  vim.fn.winrestview(saved_view)
 end
 
 local function format_jsonc_escaped_quotes()
   local saved_view = vim.fn.winsaveview()
   replace_escaped_quotes()
   vim.cmd(":%!prettier --parser jsonc")
-	vim.fn.winrestview(saved_view)
+  vim.fn.winrestview(saved_view)
 end
 local function format_json_escaped_quotes()
   local saved_view = vim.fn.winsaveview()
   replace_escaped_quotes()
   vim.cmd(":%!prettier --parser json")
-	vim.fn.winrestview(saved_view)
+  vim.fn.winrestview(saved_view)
 end
 vim.api.nvim_create_user_command("FJson", format_json, {})
 vim.api.nvim_create_user_command("FJsonc", format_jsonc, {})
@@ -76,24 +62,75 @@ require("formatter").setup({
   filetype = {
     -- Formatter configurations for filetype "lua" go here
     -- and will be executed in order
+    python = {
+      require("formatter.filetypes.python").autopep8,
+    },
+    sh = {
+      require("formatter.filetypes.sh").shfmt,
+    },
     lua = {
-      -- 需要先安装stylua： brew install stylua
       require("formatter.filetypes.lua").stylua,
     },
+		java ={
+			require("formatter.filetypes.java").google_java_format
+		},
+    typescript = {
+      require("formatter.filetypes.typescript").prettier,
+    },
     javascript = {
-      -- 需要先安装js-beautify：pip install jsbeautifier
       require("formatter.filetypes.javascript").jsbeautify,
     },
     cpp = {
-      -- 需要先安装js-beautify：pip install jsbeautifier
       require("formatter.filetypes.cpp").clangformat,
     },
-    -- Use the special "*" filetype for defining formatter configurations on
-    -- any filetype
-    -- ["*"] = {
-    --   -- "formatter.filetypes.any" defines default configurations for any
-    --   -- filetype
-    --   require("formatter.filetypes.any").remove_trailing_whitespace,
-    -- },
+    kotlin = {
+      function()
+        return {
+          exe = "ktfmt",
+          args = { "--kotlinlang-style" },
+          stdin = false,
+        }
+      end,
+    },
+    json = {
+      function()
+        return {
+          exe = "prettier",
+          args = {
+            "--stdin-filepath",
+            vim.api.nvim_buf_get_name(0),
+          },
+          stdin = true,
+        }
+      end,
+    },
+    json5 = {
+      function()
+        return {
+          exe = "prettier",
+          args = {
+						"--parser",
+						"jsonc",
+            "--stdin-filepath",
+            vim.api.nvim_buf_get_name(0),
+          },
+          stdin = true,
+        }
+      end,
+    },
+    jsonc = {
+      function()
+        return {
+          exe = "prettier",
+          args = {
+						"--parser",
+						"jsonc",
+            "--stdin-filepath",
+            vim.api.nvim_buf_get_name(0),
+          },
+          stdin = true,
+        }
+      end,
+    },
   },
 })

@@ -89,18 +89,18 @@ wezterm.on("update-status", function(window, pane)
 	local mode = " NORMAL "
 	if leader_active then
 		bg_color = "#fab387" -- 橙色
-		fg_color = "#fab387" -- 橙色
-		-- fg_color = "#1e1e2e"
+		-- fg_color = "#fab387" -- 橙色
+		fg_color = "#1e1e2e"
 		mode = "  LEADER  "
 	elseif key_table == "copy_mode" then
 		bg_color = "#9ece6a"
-		fg_color = "#9ece6a"
-		-- fg_color = "#1e1e2e"
+		-- fg_color = "#9ece6a"
+		fg_color = "#1e1e2e"
 		mode = "    COPY    "
 	elseif key_table == "search_mode" then
 		bg_color = "#AE81FF"
-		fg_color = "#AE81FF"
-		-- fg_color = "#1e1e2e"
+		-- fg_color = "#AE81FF"
+		fg_color = "#1e1e2e"
 		mode = " SEARCH  "
 	elseif key_table then
 		bg_color = "#cba6f7"
@@ -112,7 +112,7 @@ wezterm.on("update-status", function(window, pane)
 
 	window:set_left_status(wezterm.format({
 
-		-- { Background = { Color = bg_color } },
+		{ Background = { Color = bg_color } },
 		{ Foreground = { Color = fg_color } },
 		{ Text = mode },
 	}))
