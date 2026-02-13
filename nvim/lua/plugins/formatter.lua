@@ -26,23 +26,27 @@ end
 
 local function format_jsonc()
   local saved_view = vim.fn.winsaveview()
+  vim.cmd("setfiletype jsonc")
   vim.cmd(":%!prettier --parser jsonc")
   vim.fn.winrestview(saved_view)
 end
 local function format_json()
   local saved_view = vim.fn.winsaveview()
+  vim.cmd("setfiletype json")
   vim.cmd(":%!prettier --parser json")
   vim.fn.winrestview(saved_view)
 end
 
 local function format_jsonc_escaped_quotes()
   local saved_view = vim.fn.winsaveview()
+  vim.cmd("setfiletype jsonc")
   replace_escaped_quotes()
   vim.cmd(":%!prettier --parser jsonc")
   vim.fn.winrestview(saved_view)
 end
 local function format_json_escaped_quotes()
   local saved_view = vim.fn.winsaveview()
+  vim.cmd("setfiletype jsonc")
   replace_escaped_quotes()
   vim.cmd(":%!prettier --parser json")
   vim.fn.winrestview(saved_view)
