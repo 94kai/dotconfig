@@ -10,6 +10,8 @@ MANIFEST_NAME="manifest.txt"
 SCRIPTS_DIR="scripts"
 # 本地缓存目录固定为 /tmp/remote-script-launcher。
 WORKDIR="/tmp/remote-script-launcher"
+# 子脚本如果有需要即时生效的逻辑，写到这个文件里。
+ENV_SYNC_FILE="/tmp/env"
 MANIFEST_PATH="$WORKDIR/$MANIFEST_NAME"
 # 第一个参数必须传入远端根地址。
 BASE_URL="${1:-}"
@@ -180,7 +182,13 @@ run_item() {
   download_to "$script_url" "$target"
   chmod +x "$target"
 
+  rm -f "$ENV_SYNC_FILE"
   bash "$target"
+
+  if [[ -s "$ENV_SYNC_FILE" ]]; then
+    echo
+    echo "source $ENV_SYNC_FILE, 保证环境立即生效"
+  fi
 }
 
 # 交互模式。

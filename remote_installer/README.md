@@ -25,7 +25,7 @@ bash serve.sh
 再执行入口脚本：
 
 ```bash
-baseurl=http://127.0.0.1:8000; curl -fsSL "$baseurl/bootstrap.sh" | bash -s -- "$baseurl"
+baseurl=http://127.0.0.1:8000; curl -fsSL "$baseurl/bootstrap.sh" | bash -s -- "$baseurl" && [ -s /tmp/env ] && source /tmp/env
 ```
 
 ## 发布
@@ -35,4 +35,4 @@ baseurl=http://127.0.0.1:8000; curl -fsSL "$baseurl/bootstrap.sh" | bash -s -- "
 
 ## 使用
 baseurl为发布脚本到baseurl，脚本下载url需为baseurl/scripts/脚本名
-baseurl=http://127.0.0.1:8000; curl -fsSL "$baseurl/bootstrap.sh" | bash -s -- "$baseurl"
+baseurl=http://127.0.0.1:8000; curl -fsSL "$baseurl/bootstrap.sh" | bash -s -- "$baseurl" && [ -s /tmp/env ] && source /tmp/env
