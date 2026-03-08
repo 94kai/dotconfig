@@ -62,6 +62,11 @@ alias vim="nvim"
 alias vimdiff="v -d"
 alias vi="nvim"
 alias ov="/usr/bin/vim"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 
 # 使用nvim作为编辑工具
 export EDITOR='nvim'
