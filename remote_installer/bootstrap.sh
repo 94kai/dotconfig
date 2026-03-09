@@ -6,8 +6,6 @@ set -euo pipefail
 PROJECT_NAME="远程脚本启动器"
 # 清单文件固定为 manifest.txt。
 MANIFEST_NAME="manifest.txt"
-# 子脚本固定放在远端 scripts 目录下。
-SCRIPTS_DIR="scripts"
 # 本地缓存目录固定为 /tmp/remote-script-launcher。
 WORKDIR="/tmp/remote-script-launcher"
 # 子脚本如果有需要即时生效的逻辑，写到这个文件里。
@@ -174,7 +172,7 @@ run_item() {
   local index="$1"
   local script_name="${ITEM_SCRIPTS[$index]}"
   local target="$WORKDIR/$script_name"
-  local script_url="${BASE_URL%/}/${SCRIPTS_DIR}/$script_name"
+  local script_url="${BASE_URL%/}/$script_name"
 
   echo
   echo "Running: ${ITEM_TITLES[$index]}"

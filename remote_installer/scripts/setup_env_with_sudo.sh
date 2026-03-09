@@ -118,8 +118,9 @@ vim.opt.number = true
 vim.opt.mouse = ""
 EOF
 
-
 echo "安装成功"
+
+
 # 把需要立即生效到配置写到/tmp/env中
 write_env_sync_file() {
 cat > "/tmp/env" <<'EOF'

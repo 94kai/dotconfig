@@ -4,3 +4,5 @@ nvim/lua/ignore-config.lua
 rime/build
 rime/luna_pinyin.userdb
 wezterm/local-config.lua
+remote_installer/scripts/tos.sh
+remote_installer/scripts/yazi.sh

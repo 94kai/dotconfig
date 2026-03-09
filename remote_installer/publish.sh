@@ -17,7 +17,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # 直接改这里。
-COMMAND_TEMPLATE='echo tos {rel} -d=xk_installer'
+COMMAND_TEMPLATE='tos {rel} -d=xk_scripts'
 
 run_one() {
   local rel="$1"
