@@ -19,7 +19,6 @@ end
 
 vim.cmd("command! F :Format")
 
-
 local function replace_escaped_quotes()
   vim.cmd([[silent keepjumps keeppatterns %s/\\"/"/ge]])
 end
@@ -75,9 +74,9 @@ require("formatter").setup({
     lua = {
       require("formatter.filetypes.lua").stylua,
     },
-		java ={
-			require("formatter.filetypes.java").google_java_format
-		},
+    java = {
+      require("formatter.filetypes.java").google_java_format,
+    },
     typescript = {
       require("formatter.filetypes.typescript").prettier,
     },
@@ -113,11 +112,19 @@ require("formatter").setup({
         return {
           exe = "prettier",
           args = {
-						"--parser",
-						"jsonc",
+            "--parser",
+            "jsonc",
             "--stdin-filepath",
             vim.api.nvim_buf_get_name(0),
           },
+          stdin = true,
+        }
+      end,
+    },
+    rust = {
+      function()
+        return {
+          exe = "rustfmt",
           stdin = true,
         }
       end,
@@ -127,8 +134,8 @@ require("formatter").setup({
         return {
           exe = "prettier",
           args = {
-						"--parser",
-						"jsonc",
+            "--parser",
+            "jsonc",
             "--stdin-filepath",
             vim.api.nvim_buf_get_name(0),
           },

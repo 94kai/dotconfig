@@ -188,12 +188,12 @@ else
         require("plugins.floaterm")
       end,
     },
-    {
-    	'gen740/SmoothCursor.nvim',
-    	config = function()
-    		require('plugins.smooth-cursor')
-    	end
-    },
+    -- {
+    -- 	'gen740/SmoothCursor.nvim',
+    -- 	config = function()
+    -- 		require('plugins.smooth-cursor')
+    -- 	end
+    -- },
     -- 主题---------------
     {
       "olimorris/onedarkpro.nvim",

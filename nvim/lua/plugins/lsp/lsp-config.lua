@@ -1,6 +1,7 @@
 -- require("plugins.lsp.go")
 -- require("plugins.lsp.json")
 require("plugins.lsp.python")
+require("plugins.lsp.rust")
 -- servier confit: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 vim.lsp.enable('lua_ls')
 -- vim.lsp.config('lua_ls', {
@@ -62,7 +63,7 @@ keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 keymap("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 -- diagnostic 查看诊断信息
-keymap("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
+keymap("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
 keymap("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
 keymap("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
 
