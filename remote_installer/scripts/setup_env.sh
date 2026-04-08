@@ -103,6 +103,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+alias f="$HOME/yazi"
 EOF
 
 

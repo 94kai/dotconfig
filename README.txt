@@ -47,6 +47,8 @@ ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
 
 
 # ================按键映射
+ln -s ~/project/dotconfig/karabiner_assets ~/.config/karabiner/assets
+
 - caps单独按esc，组合按Ctrl
 	- linux
 		- sudo apt install interception-tools interception-caps2esc
@@ -81,3 +83,4 @@ https://github.com/ferstar/gestures/releases
 	[Install]
 	WantedBy=default.target
 ```
+
