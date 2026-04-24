@@ -6,7 +6,7 @@
       "manipulators": [
         {
           "from": {
-            "key_code": "semicolon",
+            "key_code": "j",
             "modifiers": {
               "mandatory": [
                 "left_command"

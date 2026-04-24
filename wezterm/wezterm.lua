@@ -39,10 +39,10 @@ config.mouse_bindings = {
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
+	left = 15,
+	right =15,
+	top = 15,
+	bottom = 15,
 }
 
 config.use_fancy_tab_bar = true -- tab样式
@@ -143,7 +143,7 @@ config.window_close_confirmation = "NeverPrompt"
 -- config.disable_default_key_bindings = true
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1500 }
 -- 滚动缓存区
-config.scrollback_lines = 3500
+config.scrollback_lines = 35000
 config.keys = {
 	-- Rename Tab Title
 	{
@@ -294,8 +294,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 config.inactive_pane_hsb = {
-	saturation = 0.7, -- 降低饱和度
-	brightness = 0.3, -- 降低亮度，让非活动窗格变暗
+	saturation = 0.3, -- 降低饱和度
+	brightness = 0.4, -- 降低亮度，让非活动窗格变暗
 }
 
 ai_helper.apply_to_config(config, {
