@@ -31,7 +31,7 @@ git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-m
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 ln -s ~/project/dotconfig/zshrc ~/.zshrc
-
+ln -s ~/project/dotconfig/p10k.zsh ~/.p10k.zsh
 
 # ================tmux相关
 ln -s ~/project/dotconfig/tmux.conf ~/.tmux.conf
