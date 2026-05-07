@@ -124,6 +124,20 @@ plugins=(
 	# z
 )
 
+function zvm_after_init() {
+	if [ -f ~/.fzf.zsh ]; then
+		source ~/.fzf.zsh
+	elif command -v fzf >/dev/null 2>&1; then
+		eval "$(fzf --zsh)"
+	fi
+}
+
+function zvm_after_lazy_keybindings() {
+	if (( ${+widgets[fzf-history-widget]} )); then
+		bindkey -M vicmd '/' fzf-history-widget
+	fi
+}
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -173,8 +187,6 @@ if [ -z "${CUSTOM_TMUX_SESSION_NAME}" ]; then
 else
 	alias t="tmux attach -t ${CUSTOM_TMUX_SESSION_NAME} || tmux new -s ${CUSTOM_TMUX_SESSION_NAME}"
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # fnm（node 版本管理）
 if command -v fnm >/dev/null 2>&1; then
