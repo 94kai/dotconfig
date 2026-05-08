@@ -76,6 +76,7 @@ alias fzfv="v \`fzf\`"
 alias t="tmux attach -t 1994 || tmux new -s 1994"
 alias gst="git status"
 alias ll="ls -l"
+alias aria="aria2c"
 
 # fnm（node 版本管理）
 eval "$(fnm env --use-on-cd)"

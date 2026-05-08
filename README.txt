@@ -18,6 +18,9 @@ ln -s ~/project/dotconfig/nvim ~/.config/nvim
 # 格式化json,需要先安装prettier。基于node。先去node官网安装node，然后`npm install -g prettier` 安装全局prettier。使用FJson命令格式化json
 # 格式化python,需要先安装autopep8。linux优先用'apt install python3-autopep8',mac可以用pip3 install autopep8。使用FPython命令格式化python
 
+# ================aria2
+mkdir ~/.config/aria2
+ln -s ~/project/dotconfig/aria2 ~/.config/aria2/aria2.conf
 
 
 # ================zsh相关
