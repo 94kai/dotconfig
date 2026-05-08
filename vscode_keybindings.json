@@ -1,5 +1,3 @@
-// ln -s ~/project/dotconfig/vscode_keybindings.json /Users/xuekai/Library/Application\ Support/Trae\ CN/User/keybindings.json
-// ln -s ~/project/dotconfig/vscode_keybindings.json /Users/xuekai/Library/Application\ Support/Trae\ CN/User/keybindings.json
 [
     {
         "key": "g d",

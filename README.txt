@@ -4,6 +4,10 @@ brew install fzf
 brew install yazi
 brew install zoxide # 替代zsh的z
 
+
+# ================vscode
+ln -s ~/project/dotconfig/vscode_keybindings.json /Users/xuekai/Library/Application\ Support/Trae\ CN/User/keybindings.json
+
 # ================wezterm
 mkdir ~/.config
 ln -s ~/project/dotconfig/wezterm ~/.config/wezterm
