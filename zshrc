@@ -36,7 +36,7 @@ function zvm_after_init() {
   zle -N down-line-or-beginning-search
   bindkey '^[[A' up-line-or-beginning-search
   bindkey '^[[B' down-line-or-beginning-search
-}
+ }
 
 # vim normal下的/绑定为fzf历史搜索
 function zvm_after_lazy_keybindings() {
@@ -45,6 +45,11 @@ function zvm_after_lazy_keybindings() {
   fi
 }
 
+
+# 补全系统初始化
+zmodload zsh/complist
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
 
 # 插件安装
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
