@@ -1,4 +1,3 @@
-brew install iterm2
 git@github.com:94kai/dotconfig.git
 
 brew install fzf
@@ -6,16 +5,12 @@ brew install yazi
 brew install zoxide # 替代zsh的z
 
 # ================wezterm
+mkdir ~/.config
 ln -s ~/project/dotconfig/wezterm ~/.config/wezterm
 # ================neovim相关
 ln -s ~/project/dotconfig/nvim ~/.config/nvim
 
 # 启动neovim，等待Lazy克隆成功后，关闭重启启动即可
-
-# 安装字体补丁(Noto Nerd Font)
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
-# Perferences->Profiles->Text->Font
 
 
 # LSP/Format/DAP通过Mason按需安装
@@ -26,10 +21,7 @@ brew install font-hack-nerd-font
 
 
 # ================zsh相关
-sh -c "$(curl -fsSL https://install.ohmyz.sh)"
-git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+# 插件由 zinit 自动管理，第一次启动 zsh 时会自动安装，无需手动操作
 ln -s ~/project/dotconfig/zshrc ~/.zshrc
 ln -s ~/project/dotconfig/p10k.zsh ~/.p10k.zsh
 
@@ -47,6 +39,7 @@ ln -s ~/project/dotconfig/ideavimrc ~/.ideavimrc
 
 
 # ================按键映射
+mkdir ~/.config/karabiner
 ln -s ~/project/dotconfig/karabiner_assets ~/.config/karabiner/assets
 
 - caps单独按esc，组合按Ctrl
