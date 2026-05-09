@@ -1,0 +1,137 @@
+# 发布新版：tos simple_bash_config -d=script
+# 使用/功能：
+# curl -fsSL "https://xxx/script/simple_bash_config" -o ./simple_bash_config && source ./simple_bash_config
+# xkbash生效
+# option+c
+# ctrl+r
+# fzf
+# f
+# z
+# 上下历史
+# vim配置
+# tos
+
+# xxx替换为tos域名
+_BASE_URL="https://xxx"
+
+
+
+# 历史记录
+HISTSIZE=500000
+HISTFILESIZE=500000
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+
+# 自动注入 alias 到 ~/.bashrc
+_ALIAS_LINE='alias xkbash="source simple_bash_config"'
+if ! grep -qF "$_ALIAS_LINE" ~/.bashrc 2>/dev/null; then
+  echo "$_ALIAS_LINE" >> ~/.bashrc
+fi
+
+# 根据前缀翻历史（上下键）
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+
+# 自动安装 zoxide 和 fzf
+if ! command -v zoxide >/dev/null 2>&1 || ! command -v fzf >/dev/null 2>&1; then
+  if command -v apt >/dev/null 2>&1; then
+    apt install -y zoxide fzf
+  fi
+fi
+
+# fzf
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+elif command -v fzf >/dev/null 2>&1; then
+  if fzf --bash >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
+  else
+    # 旧版 fzf 手动绑定 Ctrl+R
+    __fzf_history__() {
+      local selected
+      selected=$(history | sed 's/^ *[0-9]* *//' | sort -u | fzf --tac --no-sort --height=40% --reverse)
+      if [ -n "$selected" ]; then
+        READLINE_LINE=$selected
+        READLINE_POINT=${#selected}
+      fi
+    }
+    bind -x '"\C-r": __fzf_history__'
+  fi
+fi
+
+# fzf跳转
+fzf_to_cd() {
+  local dir
+  dir=$(find . -type d 2>/dev/null | fzf) || return
+  cd "$dir" || return
+}
+# option+c fzf跳转
+bind -x '"ç": fzf_to_cd'
+# 自动下载 yazi
+if ! command -v yazi >/dev/null 2>&1 && [ ! -f "$HOME/.local/bin/yazi" ]; then
+  mkdir -p "$HOME/.local/bin"
+  curl -fsSL "$_BASE_URL/tos_files/1770690635/yazi" -o "$HOME/.local/bin/yazi"
+  chmod +x "$HOME/.local/bin/yazi"
+fi
+[[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
+
+# yazi：退出后自动 cd
+function f() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+# zoxide（z 命令）
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+
+# vimrc 初始化
+if [ ! -f ~/.vimrc ]; then
+  cat > ~/.vimrc << 'EOF'
+set nocompatible
+set number
+set relativenumber
+set cursorline
+set wrap
+set showcmd
+set wildmenu
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set autoindent
+
+set backspace=indent,eol,start
+set clipboard=unnamed
+set mouse=a
+set laststatus=2
+set scrolloff=5
+
+syntax on
+filetype plugin indent on
+
+EOF
+fi
+
+# tos 上传
+tos() {
+  /bin/bash -c "$(curl -fsSL "$_BASE_URL/tosupload/tos.sh")" -- "$@"
+}
+
+# 提示符：显示用户、主机、路径、git 分支
+function _git_branch() {
+  git branch --show-current 2>/dev/null | sed 's/\(.*\)/ (\1)/'
+}
+PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[33m\]$(_git_branch)\[\e[0m\]\$ '
