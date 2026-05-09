@@ -45,11 +45,12 @@ function zvm_after_lazy_keybindings() {
   fi
 }
 
-
 # 补全系统初始化
 zmodload zsh/complist
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit -C
 zstyle ':completion:*' menu select
+
 
 # 插件安装
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode

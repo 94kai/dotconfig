@@ -202,7 +202,7 @@ else
         require("onedarkpro").setup({
           options = {
             transparency = true,
-						cursorline = true
+            cursorline = true,
           },
         })
         -- 设置vscode风格的colorscheme
@@ -274,13 +274,21 @@ else
       end,
     },
     {
-      -- 代码高亮
       "nvim-treesitter/nvim-treesitter",
-      event = "VeryLazy",
+      lazy = false,
+      build = ":TSUpdate",
       config = function()
         require("plugins.nvim-treesitter")
       end,
     },
+    -- {
+    --   -- 代码高亮
+    --   "nvim-treesitter/nvim-treesitter",
+    --   event = "VeryLazy",
+    --   config = function()
+    --     require("plugins.nvim-treesitter")
+    --   end,
+    -- },
     {
       -- 支持通过c-hjkl切换vim/tmux的window
       "christoomey/vim-tmux-navigator",
