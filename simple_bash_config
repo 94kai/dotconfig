@@ -100,6 +100,7 @@ set cursorline
 set wrap
 set showcmd
 set wildmenu
+set mouse=
 
 set hlsearch
 set incsearch
@@ -115,7 +116,6 @@ set autoindent
 
 set backspace=indent,eol,start
 set clipboard=unnamed
-set mouse=a
 set laststatus=2
 set scrolloff=5
 
