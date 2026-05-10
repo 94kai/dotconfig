@@ -19,7 +19,7 @@ export EDITOR='nvim'
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 if [ ! -f "$ZINIT_HOME/zinit.zsh" ]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  git clone --depth=1 --single-branch https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 source "$ZINIT_HOME/zinit.zsh"
 
@@ -84,7 +84,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # fnm（node 版本管理）
-eval "$(fnm env --use-on-cd)"
+if command -v fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
+fi
 
 # powerlevel10k
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
