@@ -93,6 +93,8 @@ fi
 
 # zoxide
 if command -v zoxide >/dev/null 2>&1; then
+  # linux的zoxide版本配置zi，会和zinit冲突
+  unalias zi 2>/dev/null
   eval "$(zoxide init zsh)"
 fi
 
