@@ -273,14 +273,14 @@ else
         require("plugins.nvim-cmp")
       end,
     },
-    {
-      "nvim-treesitter/nvim-treesitter",
-      lazy = false,
-      build = ":TSUpdate",
-      config = function()
-        require("plugins.nvim-treesitter")
-      end,
-    },
+    -- {
+    --   "nvim-treesitter/nvim-treesitter",
+    --   lazy = false,
+    --   build = ":TSUpdate",
+    --   config = function()
+    --     require("plugins.nvim-treesitter")
+    --   end,
+    -- },
     -- {
     --   -- 代码高亮
     --   "nvim-treesitter/nvim-treesitter",
