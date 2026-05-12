@@ -3,6 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+setopt SHARE_HISTORY         # 多终端实时共享历史
 setopt HIST_IGNORE_ALL_DUPS  # 忽略所有重复记录（包括连续和非连续）
 # setopt HIST_IGNORE_DUPS      # 仅忽略连续的重复记录
 setopt HIST_EXPIRE_DUPS_FIRST  # 当历史文件满时，优先删除重复记录
