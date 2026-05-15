@@ -6,3 +6,4 @@ rime/luna_pinyin.userdb
 wezterm/local-config.lua
 remote_installer/scripts/tos.sh
 remote_installer/scripts/yazi.sh
+simple_bash_config/baseurl
