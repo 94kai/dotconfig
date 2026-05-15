@@ -62,7 +62,7 @@ local commonConfig = {
   },
   {
     -- 添加注释
-    "numToStr/Comment.nvim",
+		"echasnovski/mini.comment",
     event = "VeryLazy",
     config = function()
       require("plugins.comment")
