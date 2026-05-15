@@ -36,7 +36,8 @@ bind '"\e[B": history-search-forward'
 # 自动安装 zoxide 和 fzf
 if ! command -v zoxide >/dev/null 2>&1 || ! command -v fzf >/dev/null 2>&1; then
   if command -v apt >/dev/null 2>&1; then
-    apt install -y zoxide fzf
+    (apt install -y zoxide fzf) >/dev/null 2>&1 &
+    disown "$!" 2>/dev/null || true
   fi
 fi
 
@@ -70,9 +71,16 @@ fzf_to_cd() {
 bind -x '"ç": fzf_to_cd'
 # 自动下载 yazi
 if ! command -v yazi >/dev/null 2>&1 && [ ! -f "$HOME/.local/bin/yazi" ]; then
-  mkdir -p "$HOME/.local/bin"
-  curl -fsSL "$_BASE_URL/tos_files/1770690635/yazi" -o "$HOME/.local/bin/yazi"
-  chmod +x "$HOME/.local/bin/yazi"
+  (
+    mkdir -p "$HOME/.local/bin" || exit
+    tmp="$(mktemp "$HOME/.local/bin/yazi.XXXXXX")" || exit
+    if curl -fsSL "$_BASE_URL/tos_files/1770690635/yazi" -o "$tmp"; then
+      chmod +x "$tmp" && mv "$tmp" "$HOME/.local/bin/yazi"
+    else
+      rm -f "$tmp"
+    fi
+  ) >/dev/null 2>&1 &
+  disown "$!" 2>/dev/null || true
 fi
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
 
