@@ -4,6 +4,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 setopt SHARE_HISTORY         # 多终端实时共享历史
+setopt AUTO_CD               # 直接输入目录路径时自动 cd 过去
 setopt HIST_IGNORE_ALL_DUPS  # 忽略所有重复记录（包括连续和非连续）
 # setopt HIST_IGNORE_DUPS      # 仅忽略连续的重复记录
 setopt HIST_EXPIRE_DUPS_FIRST  # 当历史文件满时，优先删除重复记录
@@ -77,6 +78,13 @@ alias vimdiff="v -d"
 alias fzfv="v \`fzf\`"
 alias t="tmux attach -t 1994 || tmux new -s 1994"
 alias gst="git status"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gcb="git checkout -b"
+alias gco="git checkout"
+alias gf="git fetch --prune"
+alias gl="git pull --prune"
+alias gp="git push"
 alias ll="ls -l"
 alias aria="aria2c"
 alias ..="cd .."
@@ -99,3 +107,5 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
+# Added by coco installer
+export PATH="/Users/xuekai/.local/bin:$PATH"
