@@ -33,5 +33,95 @@
         "key": "g D",
         "command": "editor.action.peekDefinition",
         "when": "vim.mode == 'Normal' && editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "z",
+        "command": "vscode-neovim.send",
+        "when": "vim.mode == 'Normal' && editorTextFocus && neovim.init && focusedView == 'workbench.panel.output' && neovim.mode != 'insert'"
+    },
+    {
+        "key": "z",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.init && focusedView == 'workbench.panel.output' && neovim.mode != 'insert'"
+    },
+    {
+        "key": "z c",
+        "command": "list.collapse",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z c",
+        "command": "-list.collapse",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z m",
+        "command": "list.collapseAll",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z m",
+        "command": "-list.collapseAll",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+m",
+        "command": "list.collapseAll",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+m",
+        "command": "-list.collapseAll",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+c",
+        "command": "list.collapseAllToFocus",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+c",
+        "command": "-list.collapseAllToFocus",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z o",
+        "command": "list.expand",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z o",
+        "command": "-list.expand",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+o",
+        "command": "list.expand",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+o",
+        "command": "-list.expand",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z a",
+        "command": "list.toggleExpand",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z a",
+        "command": "-list.toggleExpand",
+        "when": "!editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+a",
+        "command": "list.toggleExpand",
+        "when": "vim.mode == 'Normal' && !editorTextFocus && !inputFocus"
+    },
+    {
+        "key": "z shift+a",
+        "command": "-list.toggleExpand",
+        "when": "!editorTextFocus && !inputFocus"
     }
 ]
