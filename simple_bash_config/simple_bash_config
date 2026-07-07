@@ -128,7 +128,7 @@ set laststatus=2
 set scrolloff=5
 
 set noswapfile
-set statusline=%f\ %h%m%r%=%l,%c\ %p%%\ Search:[%{searchcount().current}/%{searchcount().total}]
+set statusline=%f\ %h%m%r%=%l,%c\ %p%%\ Search:[%{searchcount().current}/%{searchcount().total}]___
 syntax on
 filetype plugin indent on
 
