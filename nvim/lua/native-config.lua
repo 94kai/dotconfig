@@ -79,6 +79,11 @@ vim.api.nvim_create_user_command("Sort", "%!sort", {})
 vim.api.nvim_create_user_command("Uniq", "%!uniq", {})
 vim.api.nvim_create_user_command("LineWrapping", "%s/\\n/\r/g", {})
 
+-- 默认使用very nomagic
+vim.keymap.set("n", "/", function()
+  return "/\\V"
+end, { expr = true, desc = "Literal search" })
+
 -- neovide配置
 if vim.g.neovide then
 	vim.g.neovide_window_blurred = true
