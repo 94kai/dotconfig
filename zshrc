@@ -1,3 +1,8 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/xuekai/.oh-my-zsh/custom/completions" $fpath)
+# OPENSPEC:END
+
 # p10k即时提示功能
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
