@@ -59,7 +59,7 @@
     # nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
     # nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     # nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
-    node_version            # node.js version
+    my_node_version         # 从 fnm 安装路径读取 Node 版本
     # go_version            # go version (https://golang.org)
     # rust_version          # rustc version (https://www.rust-lang.org)
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
@@ -1052,6 +1052,27 @@
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  # 直接解析当前 Node 的真实路径，避免执行 Node 或计算二进制文件摘要。
+  function prompt_my_node_version() {
+    emulate -L zsh
+    local node=${commands[node]} dir=${PWD:A}
+    [[ -n $node && -x $node ]] || return
+    node=${node:A}
+    local fnm_root=${FNM_DIR:-$HOME/.local/share/fnm}
+    fnm_root=${fnm_root:A}
+    [[ $node == "$fnm_root"/node-versions/v*/installation/bin/node ]] || return
+    local version=${node:h:h:h:t}
+
+    # 保留原有行为：仅在当前目录或祖先目录存在 package.json 时显示。
+    if [[ ${POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY:-true} == true ]]; then
+      while [[ ! -f "$dir/package.json" ]]; do
+        [[ $dir == / ]] && return
+        dir=${dir:h}
+      done
+    fi
+    p10k segment -f "${POWERLEVEL9K_NODE_VERSION_FOREGROUND:-70}" -r -i NODE_ICON -t "${version#v}"
+  }
 
   #######################[ go_version: go version (https://golang.org) ]########################
   # Go version color.

@@ -56,6 +56,8 @@ function zvm_after_lazy_keybindings() {
 zmodload zsh/complist
 autoload -Uz compinit
 compinit -C
+# bun completions
+[ -s "/Users/xuekai/.bun/_bun" ] && source "/Users/xuekai/.bun/_bun"
 zstyle ':completion:*' menu select
 
 
