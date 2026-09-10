@@ -10,8 +10,6 @@
 echo "Running IdeVim"
 
 let mapleader=" "
-set nocompatible				" 关闭对vi的兼容
-set encoding=utf-8				" 编码设置
 set showmode					" 底部显示模式
 "set relativenumber				" 设置绝对行号
 "set number				        " 设置行号
@@ -24,8 +22,7 @@ set history=2000			    " 设置历史条数
 set clipboard=unnamedplus       " 剪切板共享
 set showcmd						" 显示当前输入的命令
 set surround
-set peekaboo                    " normal下按",insert下c-r 弹出寄存器列表
-"set keep-english-in-normal-and-restore-in-insert		" 自动切输入法插件
+"set showcmd-english-in-normal-and-restore-in-insert		" 自动切输入法插件
 set commentary											" 用gc注释代码
 "set easymotion											" 快速跳转到指定字符
 set ReplaceWithRegister									" 用gr来粘贴字符串
@@ -52,7 +49,7 @@ map s <Action>(AceAction)
 " Press `s` in normal mode to activate AceJump mode after the caret
 "nmap s <Action>(AceForwardAction)
 
--- 窗口切换快捷键
+"窗口切换快捷键
 nnoremap <silent> <C-h> <C-w><Left>
 nnoremap <silent> <C-j> <C-w><Down>
 nnoremap <silent> <C-k> <C-w><Up>
@@ -67,6 +64,8 @@ set functiontextobj                                     " 支持函数对象，�
 Plug 'machakann/vim-highlightedyank'					" 复制时高亮
 let g:highlightedyank_highlight_duration = "200"		" 设置高亮时间
 
+"粘贴文本时，通过C-p C-n进行循环
+Plug 'YankRing.vim'
 
 
 set ideajoin											" 智能连接。如字符串、表达式从两行连接成1行时，智能重构
