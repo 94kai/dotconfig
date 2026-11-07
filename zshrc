@@ -15,6 +15,7 @@ setopt HIST_IGNORE_ALL_DUPS  # 忽略所有重复记录（包括连续和非连�
 setopt HIST_EXPIRE_DUPS_FIRST  # 当历史文件满时，优先删除重复记录
 # setopt HIST_FIND_NO_DUPS     # 在历史搜索中不显示重复项
 #
+HISTFILE="$HOME/.zsh_history"
 # 内存中保留多少条
 HISTSIZE=500000
 #写入历史文件多少条
